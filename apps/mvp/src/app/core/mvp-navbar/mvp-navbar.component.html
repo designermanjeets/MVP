@@ -1,0 +1,47 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between stretch">
+    <section fxLayoutAlign="space-between stretch">
+        <button mat-button [matMenuTriggerFor]="mpmenu">{{mpVersions[0]?.version}}
+            <mat-icon class="material-icons">keyboard_arrow_down</mat-icon>
+        </button>
+            <mat-menu #mpmenu="matMenu" class="navbarmenu">
+                <button mat-menu-item *ngFor="let item of mpVersions | slice:1">{{item.version}}</button>
+            </mat-menu>
+        <span class="border"></span>
+        <div [marginLeft]="20" fxFlexAlign="center">
+            <div class="ico-dashboard"><mat-icon class="material-icons">dashboard</mat-icon></div>
+            <span>Dashboard</span>
+        </div>
+    </section>
+    <section class="rightnav" fxLayoutAlign="space-between stretch" fxFlexAlign="center" fxLayoutGap="15px">
+        <button mat-icon-button [matMenuTriggerFor]="appsmenu">
+            <mat-icon class="material-icons">apps</mat-icon>
+            <mat-menu #appsmenu="matMenu" class="navbarmenu">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+            </mat-menu>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="notimenu">
+            <mat-icon
+                class="material-icons"
+                [matBadge]=notifications?.length
+                matBadgeColor="warn"
+            >notifications_active</mat-icon>
+            <mat-menu #notimenu="matMenu" class="navbarmenu">
+                <button mat-menu-item *ngFor="let item of notifications">{{item.msg}}</button>
+            </mat-menu>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="settingsmenu">
+            <mat-icon class="material-icons">settings</mat-icon>
+            <mat-menu #settingsmenu="matMenu" class="navbarmenu">
+                <button mat-menu-item *ngFor="let item of settings">{{item.set}}</button>
+            </mat-menu>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="usermenu">
+            <div class="user no-mar" [matMenuTriggerFor]="usermenu">DM</div>
+            <mat-menu #usermenu="matMenu" class="navbarmenu">
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item (click)="logout()">Log Out</button>
+            </mat-menu>
+        </button>
+    </section>
+</mat-toolbar>

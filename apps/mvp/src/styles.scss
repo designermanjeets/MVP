@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import './mvp-theme.scss';
+
+html, body, .fullHeight { height: 100%; background-color: #e5eef4; }
+.primaryBG { background-color: #143055; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-table {
+    thead {
+        background-color: #e5eef4;
+        text-transform: uppercase;
+        .mat-header-cell {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            .material-icons {
+                font-size: 14px;
+                width: 14px;
+                height: 14px;
+                margin: -2px 5px 0 0;
+                vertical-align: top;
+            }
+        }
+    }
+    tr.mat-row, tr.mat-footer-row, tr.mat-header-row {
+        height: 40px;
+    }
+}
+
+
+
+
+
+
+
+
+// Utility Class
+.pointer { cursor: pointer; }
+.no-padd { padding: 0 !important; }
+.no-mar { margin: 0 !important; }
+.grayblue-color { color: #607d8b; }
+.grayblue-bg { color: #607d8b; }
+.font12 { font-size: 12px !important; }
+.text-uppercase { text-transform: uppercase; }
+.pos-rel { position: relative; }
+.bg-blue { background-color: #0d47a1; }
+.bg-seablue { background-color: #00a2e8; }
+.bg-green { background-color: #22b14c; }

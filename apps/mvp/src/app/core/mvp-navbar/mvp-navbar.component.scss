@@ -1,0 +1,26 @@
+.mat-toolbar, .mat-button { font-size: 16px; }
+.ico-dashboard {
+    background-color: #fff; 
+    border-radius: 100%; 
+    width: 40px; 
+    height: 40px; 
+    text-align: center; 
+    line-height: 40px; 
+    display: inline-block;
+    margin-right: 10px;
+    mat-icon { margin-top: 7px; vertical-align: top; color: #3f51b5; }
+} 
+.border { background: #323e80; width: 1px; box-shadow: 1px 3px 5px rgba($color: #000000, $alpha: 0.5); }
+.rightnav .material-icons { font-size: 25px; margin-top: 2px; }
+.user { 
+    background-color: #727ebc; 
+    border-radius: 100%; 
+    width: 40px; 
+    height: 40px; 
+    line-height: 40px; 
+    text-align: center;
+    font-size: 15px;
+}
+::ng-deep .mat-menu-panel.navbarmenu {
+    min-width: 150px;
+   }

@@ -1,0 +1,34 @@
+<section class="loginwrap" fxFlex="40" fxFlex.xl="30" fxFlexOffset="30" fxFlexOffset.xl="35" fxLayoutAlign="center">
+    <mat-card class="no-padd">
+        <section fxLayout="row wrap">
+            <!-- <section fxFlex="60" class="loginbg"></section> -->
+            <section fxFlex fxLayout="column" fxLayoutAlign="start center" class="loginright">
+                <h1 class="logo-login"><img src="./assets/logo_temp.jpg" alt=""></h1>
+                <form (ngSubmit)="onSubmit()" #userForm="ngForm" autocomplete="off" fxLayout="row wrap" fxLayoutAlign="center start">
+                    <div fxFlex="80">
+                        <mat-form-field appearance="outline" fxFlex="100">
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Username" required [(ngModel)]="model.username" name="username">
+                            <mat-error *ngIf="userForm.controls['username']?.errors?.required">You must enter a value</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="80">
+                        <mat-form-field appearance="outline" fxFlex="100">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput placeholder="Password" required [(ngModel)]="model.password" name="password">
+                            <mat-error *ngIf="userForm.controls['password']?.errors?.required">You must enter a value</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="80" fxLayout="row" fxLayoutAlign="space-between start">
+                        <div><mat-checkbox color="primary">Remember me!</mat-checkbox></div>
+                        <div><a href="javascript:void(0)">Reset password?</a></div>
+                    </div>
+                    <div fxFlex="80" [marginTop]="20">
+                        <!--  [disabled]="!userForm.form.valid" -->
+                        <button fxFlex type="submit" mat-raised-button color="primary">Login</button>
+                    </div>
+                  </form>
+            </section>
+        </section>
+    </mat-card>
+</section>

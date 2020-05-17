@@ -1,0 +1,73 @@
+<mat-card>
+    <h3 class="text-uppercase" [marginBottom]="0">
+        Trips
+        <mat-icon class="material-icons grayblue-color">notifications</mat-icon>
+    </h3>
+    <span class="font12">Last updated 5 min ago</span>
+    <!-- Chart -->
+    <section fxLayout="row wrap" [marginTop]="30" [marginBottom]="30" class="chartwrap pos-rel">
+        <h3 class="totaltrips grayblue-color" [marginTop]="50">4861<span>Total Trips</span></h3>
+        <ngx-charts-line-chart
+            [scheme]="colorScheme"
+            [legend]="legend"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [yAxisLabel]="yAxisLabel"
+            [timeline]="timeline"
+            [results]="chartData"
+            [autoScale]="'true'"
+            [legendPosition]="'right'"
+        >
+        </ngx-charts-line-chart>
+    </section>
+    <!-- Table -->
+    <section fxLayout="row">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z4" fxFlex="100">
+            <!-- trip Column -->
+            <ng-container matColumnDef="trip">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header><!----></th>
+                <td mat-cell *matCellDef="let row"> {{row.trip}} </td>
+            </ng-container>
+            
+            <!-- lime Column -->
+            <ng-container matColumnDef="lime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon color="primary" class="material-icons">adjust</mat-icon>
+                    Lime
+                </th>
+                <td mat-cell *matCellDef="let row"> {{row.lime}} </td>
+            </ng-container>
+
+            <!-- bird Column -->
+            <ng-container matColumnDef="bird">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon color="accent" class="material-icons">adjust</mat-icon>
+                    Bird
+                </th>
+                <td mat-cell *matCellDef="let row"> {{row.bird}} </td>
+            </ng-container>
+
+            <!-- members Column -->
+            <ng-container matColumnDef="members">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon color="warn" class="material-icons">adjust</mat-icon>
+                    Member
+                </th>
+                <td mat-cell *matCellDef="let row"> {{row.members}} </td>
+            </ng-container>
+
+            <!-- casual Column -->
+            <ng-container matColumnDef="casual">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon color="primary" class="material-icons">adjust</mat-icon>
+                    Casual
+                </th>
+                <td mat-cell *matCellDef="let row"> {{row.casual}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+</mat-card>
