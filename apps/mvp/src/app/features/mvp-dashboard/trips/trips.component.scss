@@ -17,3 +17,5 @@ height: 200px;
 }
 .hoprtr { display: block; }
 .doublecol { border-top: 1px solid rgba(0, 0, 0, 0.05); margin-left: -10px; margin-right: -10px; }
+
+.tripGrid ::ng-deep tbody tr td:first-of-type { text-align: left; }
