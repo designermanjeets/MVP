@@ -20,6 +20,7 @@ export class MvpNavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.ngxService.start();
     this.mvpNavbarService.reqFromMultiSources().subscribe(response => {
       if (response) {
         [this.notifications, this.mpVersions, this.settings] = response;

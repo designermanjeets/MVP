@@ -11,5 +11,15 @@ h3 mat-icon { vertical-align: top; margin-top: 1px; }
     padding-right: 5px; 
     transition: width 1.5s;
 }
-.width175 { width: 175px; }
-.width200 { width: 200px; }
+
+.w-125 { width: 125px; }
+
+.puposePieChart {
+    min-height: 200px; position: relative;
+    ::ng-deep .chart-legend {
+        position: absolute;
+        min-width: 150px;
+        right: 0;
+        > div { width: auto !important; }
+    }
+}

@@ -1,6 +1,7 @@
+:host { margin-bottom: 25px; display: block; }
 h3 mat-icon { vertical-align: top; margin-top: 1px; }
 .chartwrap {
-height: 300px;
+height: 200px;
     ::ng-deep .chart-legend {
         position: absolute;
         right: 0;
@@ -14,3 +15,5 @@ height: 300px;
     text-align: center;
     span { font-size: 14px; text-transform: uppercase; font-weight: normal; display: block; }
 }
+.hoprtr { display: block; }
+.doublecol { border-top: 1px solid rgba(0, 0, 0, 0.05); margin-left: -10px; margin-right: -10px; }

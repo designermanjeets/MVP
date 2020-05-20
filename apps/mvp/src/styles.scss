@@ -10,22 +10,52 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         background-color: #e5eef4;
         text-transform: uppercase;
         .mat-header-cell {
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
             color: #444;
+            text-transform: uppercase;
             .material-icons {
                 font-size: 14px;
                 width: 14px;
                 height: 14px;
-                margin: -2px 5px 0 0;
+                margin: 2px 0px 0 0;
                 vertical-align: top;
             }
+            .mat-sort-header-button {
+                text-transform: uppercase;
+            }
         }
+        th.mat-header-cell:last-of-type {
+            padding-right: 0;
+        }
+    }
+    &.tripGrid {
+        th.mat-header-cell:first-of-type {
+            font-size: 0;
+        }
+    }
+    tbody {
+        td.mat-cell:last-of-type {
+            padding-right: 0;
+        }
+        tr td { text-transform: capitalize; }
     }
     tr.mat-row, tr.mat-footer-row, tr.mat-header-row {
         height: 40px;
     }
+    th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom-color: rgba(0, 0, 0, 0.05);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
+
+.ngx-charts .arc, .ngx-charts .bar, .ngx-charts .circle {
+    stroke: white;
+    stroke-width: 4px;
+}
+// .chart-legend { min-width: 100px; }
+// .chart-legend>div { width: auto !important; }
 
 
 
@@ -46,3 +76,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .bg-blue { background-color: #0d47a1; }
 .bg-seablue { background-color: #00a2e8; }
 .bg-green { background-color: #22b14c; }
+.text-center { text-align: center !important; }

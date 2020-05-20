@@ -17,20 +17,9 @@ export class MvpdashboardService {
 
   getTrips() {
     return this.http.get<any>(`${environment.apiUrl}/trips`)
-      .pipe(map(res => {
-        res.payload.forEach(ele => {
-          ele.series.forEach(_ele => _ele.name = new Date(_ele.name));
-        });
-        return res.payload;
-      }),
+      .pipe(map(res => res),
       catchError(this.handleError) // then handle the error
   )}
-
-  getTripsTable() {
-    return this.http.get<any>(`${environment.apiUrl}/tripstable`)
-    .pipe(map(res => res),
-    catchError(this.handleError) // then handle the error
-  )};
 
   getTripsPurposeTable() {
     return this.http.get<any>(`${environment.apiUrl}/trippurposetable`)
