@@ -1,0 +1,50 @@
+:host { margin-bottom: 25px; display: block; }
+h3 {
+    font-size: 22px;
+    mat-icon { vertical-align: top; margin-top: -1px; }
+}
+.fleetmode {
+    h2 { 
+        font-size: 36px;
+        span {
+            font-size: 20px;
+        }
+    }
+    h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    p { font-size: 14px; }
+    .botborder { display: block; height: 6px; }
+}
+.puposePieChart {
+    min-height: 200px; position: relative;
+    ::ng-deep .chart-legend {
+        position: absolute;
+        min-width: 100%;
+        left: 0;
+        top: 50px;
+        > div { width: auto !important;
+            .legend-title { display: none; }
+        }
+        .legend-labels {
+            background: transparent; 
+            .legend-label { display: inline-block;}
+        }
+    }
+    ngx-charts-pie-chart {
+        margin-left: -50px;
+        display: block;
+    }
+}
+
+.utili ::ng-deep {
+    margin-left: -35px;
+    display: block;
+    h3 { margin-left: 40px; }
+    ngx-charts-line-chart {
+        // .ngx-charts-chart, .ngx-charts-outer, .ngx-charts, .tooltip-area {
+        //     width: 100% !important;
+        // }
+    }
+}

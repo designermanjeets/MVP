@@ -22,6 +22,7 @@ export class TripPurposesComponent implements OnInit {
   showLabels = false;
   explodeSlices = false;
   doughnut = false;
+  gradient = false;
 
   constructor(
     private mvpdashboardService: MvpdashboardService

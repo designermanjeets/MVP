@@ -18,8 +18,8 @@ export class TripsComponent implements OnInit {
   legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
-  xAxis: boolean = false;
-  yAxis: boolean = false;
+  xAxis: boolean = true;
+  yAxis: boolean = true;
   timeline: boolean = false;
   curve = shape.curveBasis;
   colorScheme = colorScheme;

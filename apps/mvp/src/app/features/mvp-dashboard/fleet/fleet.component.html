@@ -1,0 +1,62 @@
+<mat-card>
+    <h3 class="text-uppercase" [marginBottom]="0">
+        Trips
+        <mat-icon class="material-icons grayblue-color">notifications</mat-icon>
+    </h3>
+    <span class="font14">Last updated 5 min ago</span>
+
+    <!-- Fleet -->
+    <section fxLayout="row" fxLayoutAlign="start start" class="fleetmode">
+        <section fxFlex *ngFor="let item of fleetInsightsArr">
+            <ng-container *ngFor="let op of item | keyvalue">
+                <h2 class="grayblue-color" [marginBottom]="0">{{op.value.TotalVehicles.count}}
+                    <span 
+                        [ngClass]="op.key ==='LIME' ? 'color-green': op.key ==='HOPR MEMBERS' ? 'color-blue': 'color-seablue'">
+                        ({{op.value.TotalVehicles.capped}})
+                    </span>
+                </h2>
+                <h4 [marginTop]="5" class="grayblue-color">{{op.key}}</h4>
+                <p [marginBottom]="4">{{op.value.TotalVehicles.available}} are available</p>
+                <p [marginTop]="0">{{op.value.TotalVehicles.outOfService}} are out of service</p>
+                <span class="botborder" [ngClass]="op.key ==='LIME' ? 'bg-green': op.key ==='HOPR MEMBERS' ? 'bg-blue': 'bg-seablue'"></span>
+            </ng-container>
+        </section>
+    </section>
+    <!-- ./Fleet -->
+    <section class="puposePieChart" fxLayout="row" fxLayoutAlign="start start">
+        <section fxFlex="40">
+            <!-- Modes -->
+            <h3 class="text-uppercase">Modes</h3>
+            <ngx-charts-pie-chart
+                [view]="view"
+                [scheme]="colorScheme"
+                [results]="commutePieResult"
+                [legend]="showLegend"
+                [explodeSlices]="explodeSlices"
+                [labels]="showLabelsPie"
+                [doughnut]="doughnut"
+                [gradient]="gradient">
+            </ngx-charts-pie-chart>
+        </section>
+        <!-- ./ Modes-->
+        <section fxFlex="60" class="utili">
+            <h3 class="text-uppercase">Utilization</h3>
+            <ngx-charts-line-chart
+                [scheme]="colorScheme"
+                [legend]="legend"
+                [xAxis]="xAxis"
+                [yAxis]="yAxis"
+                [timeline]="timeline"
+                [results]="chartData"
+                [autoScale]="'true'"
+                [curve] ="curve"
+                [legendPosition]="'right'"
+                [showRefLines] ="'true'"
+                [showGridLines] ="'true'"
+                [showXAxisLabel] = "'false'"
+                [showYAxisLabel] = "'false'"
+            >
+            </ngx-charts-line-chart>
+        </section>
+    </section>
+</mat-card>

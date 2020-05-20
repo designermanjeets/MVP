@@ -8,6 +8,7 @@ import { MvpDashboardComponent } from './mvp-dashboard.component';
 import { DashboardBarComponent } from './dashboard-bar/dashboard-bar.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripPurposesComponent } from './trip-purposes/trip-purposes.component';
+import { FleetComponent } from './fleet/fleet.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     MvpDashboardComponent,
     DashboardBarComponent,
     TripsComponent,
-    TripPurposesComponent
+    TripPurposesComponent,
+    FleetComponent
   ],
   imports: [
     CommonModule,

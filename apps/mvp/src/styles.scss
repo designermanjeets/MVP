@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import './mvp-theme.scss';
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600&display=swap');
 
 html, body, .fullHeight { height: 100%; background-color: #e5eef4; }
 .primaryBG { background-color: #143055; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
+.mat-card { font-family: 'Baloo Chettan 2', cursive; }
 
 .mat-table {
     thead {
@@ -71,9 +73,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .grayblue-color { color: #607d8b; }
 .grayblue-bg { color: #607d8b; }
 .font12 { font-size: 12px !important; }
+.font14 { font-size: 14px !important; }
 .text-uppercase { text-transform: uppercase; }
 .pos-rel { position: relative; }
 .bg-blue { background-color: #0d47a1; }
 .bg-seablue { background-color: #00a2e8; }
 .bg-green { background-color: #22b14c; }
+.color-blue { color: #0d47a1; }
+.color-seablue { color: #00a2e8; }
+.color-green { color: #22b14c; }
 .text-center { text-align: center !important; }
+h4, h2, h3 { font-weight: 500; }
