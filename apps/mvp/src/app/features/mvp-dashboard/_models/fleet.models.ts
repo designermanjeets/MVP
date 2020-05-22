@@ -25,7 +25,7 @@ export const fleetInsights = {
                           "date": "dateTime",
                           "count": "50"
                       },
-                      "Vehicle density": {
+                      "Vehicledensity": {
                           "min": "SURREY",
                           "max": "DOWNTOWN"
                       },
@@ -49,7 +49,41 @@ export const fleetInsights = {
                       }]
                      }
                   }  
-              },
+              },{
+                "BIRD":
+                {
+                    "WellParked": "75%",
+                    "Equity" : "935,000",
+                    "Co2Footprint": "935,500",
+                    "Maintenence" : {
+                        "date": "dateTime",
+                        "count": "50"
+                    },
+                    "Vehicledensity": {
+                        "min": "SURREY",
+                        "max": "DOWNTOWN"
+                    },
+                    "VehicleActivity": {
+                        "min": "SURREY",
+                        "max": "DOWNTOWN"
+                    },
+                    "TotalVehicles": {
+                        "count": "500",
+                        "capped": "450",
+                        "available": "430",
+                        "outOfService": "20"
+                   },
+                   "Utilization" : {
+                    "timeline": [{
+                      "07 PM": "1120",
+                      "08 PM": "1130",
+                      "09 PM": "1110",
+                      "10 PM": "1110",
+                      "11 PM": "1130"
+                    }]
+                   }
+                }  
+            },
               {
                 "HOPR MEMBERS": 
                   {
@@ -69,10 +103,10 @@ export const fleetInsights = {
                           "max": "DOWNTOWN"
                       },
                       "TotalVehicles": {
-                          "count": "500",
-                          "capped": "450",
-                          "available": "430",
-                          "outOfService": "20"
+                          "count": "1500",
+                          "capped": "2000",
+                          "available": "830",
+                          "outOfService": "50"
                      },
                      "Utilization" : {
                       "timeline": [{
@@ -104,10 +138,10 @@ export const fleetInsights = {
                           "max": 'DOWNTOWN'
                       },
                       "TotalVehicles": {
-                          "count": "500",
-                          "capped": "450",
-                          "available": "430",
-                          "outOfService": "20"
+                          "count": "600",
+                          "capped": "550",
+                          "available": "30",
+                          "outOfService": "80"
                      },
                      "Utilization" : {
                       "timeline": [{

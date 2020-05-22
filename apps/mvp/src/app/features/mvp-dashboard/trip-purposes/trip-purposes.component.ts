@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { displayedColsPurpose, colorScheme } from './../_models/trip.model';
+import { displayedColsPurpose, colorScheme, tripPurposeData } from './../_models/trip.model';
 import { MvpdashboardService } from './../_services/mvpdashboard.service';
 
 @Component({
@@ -29,7 +29,14 @@ export class TripPurposesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getTripsPurposeTable();
+    // this.getTripsPurposeTable();
+    this.getStubData(tripPurposeData);
+  }
+
+  getStubData(val) {
+    this.dataSource = new MatTableDataSource(val['TRIP PURPOSE']);
+    this.dataSource.sort = this.sort;
+    this.commutePieResult = this.getCommPie(val['TRIP CATEGORY']);
   }
 
   getCommPie(res) {

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MvpdashboardService } from './../_services/mvpdashboard.service';
-import { colorScheme, puposeInputCols } from './../_models/trip.model';
+import { colorScheme, tripData } from './../_models/trip.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import * as shape from 'd3-shape';
@@ -25,7 +25,7 @@ export class TripsComponent implements OnInit {
   colorScheme = colorScheme;
   // Grid Trip
   gridData: any;
-  inputColumns = puposeInputCols;
+  inputColumns: any;
   inputData: any;
   displayColumns: string[];
   displayData: any;
@@ -37,7 +37,20 @@ export class TripsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getTrips();
+    // this.getTrips();
+    this.getStubData(tripData);
+  }
+
+  getStubData(val) {
+    this.chartData = this.extractTrips(val);
+    this.inputData = this.gridData;
+
+    this.inputColumns = Object.keys(this.gridData[0]);
+    this.inputColumns.forEach((element, i) => {
+      element === 'trip' && this.inputColumns.splice(i, 1);
+    });
+    
+    this.getTripGridData();
   }
 
   getTrips() {
@@ -46,6 +59,7 @@ export class TripsComponent implements OnInit {
         this.chartData = this.extractTrips(val);
         this.inputData = this.gridData;
         this.getTripGridData();
+        console.log(this.gridData);
       };
     });
   }

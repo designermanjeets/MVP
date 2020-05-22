@@ -19,7 +19,7 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
                 font-size: 14px;
                 width: 14px;
                 height: 14px;
-                margin: 2px 0px 0 0;
+                margin: 0;
                 vertical-align: top;
             }
             .mat-sort-header-button {
@@ -31,8 +31,8 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
         }
     }
     &.tripGrid {
-        th.mat-header-cell:first-of-type {
-            font-size: 0;
+        tr.mat-header-row {
+            height: 25px;
         }
     }
     tbody {
@@ -56,8 +56,10 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
     stroke: white;
     stroke-width: 4px;
 }
-// .chart-legend { min-width: 100px; }
-// .chart-legend>div { width: auto !important; }
+
+.calWithNoInput {
+    width:1px; visibility:hidden;
+}
 
 
 
@@ -74,6 +76,7 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .grayblue-bg { color: #607d8b; }
 .font12 { font-size: 12px !important; }
 .font14 { font-size: 14px !important; }
+.font17 { font-size: 17px !important; }
 .text-uppercase { text-transform: uppercase; }
 .pos-rel { position: relative; }
 .bg-blue { background-color: #0d47a1; }
@@ -83,4 +86,5 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .color-seablue { color: #00a2e8; }
 .color-green { color: #22b14c; }
 .text-center { text-align: center !important; }
+.zeroCol { font-size: 0 !important; }
 h4, h2, h3 { font-weight: 500; }

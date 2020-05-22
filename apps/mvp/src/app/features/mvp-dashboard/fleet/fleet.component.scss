@@ -41,10 +41,19 @@ h3 {
 .utili ::ng-deep {
     margin-left: -35px;
     display: block;
+    max-height: 225px;
     h3 { margin-left: 40px; }
-    ngx-charts-line-chart {
-        // .ngx-charts-chart, .ngx-charts-outer, .ngx-charts, .tooltip-area {
-        //     width: 100% !important;
-        // }
+}
+.splitCol { bottom: -25px; position: relative; }
+.colhopr { text-align: center; position: relative; top: -25px; }
+.fleetGrid ::ng-deep tbody tr td:first-of-type { text-align: left; }
+
+::ng-deep .densityGrid {
+    tr.mat-header-row {
+        height: 25px;
     }
+    .mat-cell, .mat-footer-cell {
+        font-size: 12px;
+        text-transform: uppercase;
+     }
 }
