@@ -5,10 +5,10 @@ export const tripData = {
             "last updated":"5 mins ago",
             "lime":[
                 {
-                    "avg. distance":"659",
-                    "avg. duration":"5:19",
-                    "avg. trips":"750",
-                    "total trips":"900,000",
+                    "avg.distance":"659",
+                    "avg.duration":"5:19",
+                    "avg.trips":"750",
+                    "totaltrips":"900,000",
                     "timeline":[
                         {
                             "07 PM":"800",
@@ -21,10 +21,10 @@ export const tripData = {
             ],
             "bird":[
                 {
-                    "avg. distance":"659",
-                    "avg. duration":"5:19",
-                    "avg. trips":"750",
-                    "total trips":"900,000",
+                    "avg.distance":"659",
+                    "avg.duration":"5:19",
+                    "avg.trips":"750",
+                    "totaltrips":"900,000",
                     "timeline":[
                         {
                             "07 PM":"500",
@@ -37,10 +37,10 @@ export const tripData = {
             ],
             "members":[
                 {
-                    "avg. distance":"659",
-                    "avg. duration":"5:19",
-                    "avg. trips":"750",
-                    "total trips":"900,000",
+                    "avg.distance":"659",
+                    "avg.duration":"5:19",
+                    "avg.trips":"750",
+                    "totaltrips":"900,000",
                     "timeline":[
                         {
                             "07 PM":"1000",
@@ -53,10 +53,10 @@ export const tripData = {
             ],
             "casual":[
                 {
-                    "avg. distance":"659",
-                    "avg. duration":"5:19",
-                    "avg. trips":"750",
-                    "total trips":"900,000",
+                    "avg.distance":"659",
+                    "avg.duration":"5:19",
+                    "avg.trips":"750",
+                    "totaltrips":"900,000",
                     "timeline":[
                         {
                             "07 PM":"800",
@@ -111,4 +111,4 @@ export const colorScheme = {
 
 export const displayedColsPurpose: string[] = [ 'tripstart', 'tripend', 'tripPercentage' ];
 
-export const puposeInputCols: string[] = ['avg. distance', 'avg. duration', 'avg. trips', 'total trips'];
+export const puposeInputCols: string[] = ['avg.distance', 'avg.duration', 'avg.trips', 'totaltrips'];
