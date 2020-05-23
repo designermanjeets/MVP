@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MvpLoginService } from './features/mvp-login/_services/mvp-login.service';
 import { User } from './features/mvp-login/_models/login.model';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'workspace-root',
@@ -16,8 +17,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private mvpLoginService: MvpLoginService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('en');
+  }
 
   ngOnInit(): void {
     this.subs = this.mvpLoginService.currentUser.subscribe(val => {

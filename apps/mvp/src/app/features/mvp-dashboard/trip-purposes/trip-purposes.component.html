@@ -10,15 +10,15 @@
             <!-- tripStart Column -->
             <ng-container matColumnDef="tripstart">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-125">Trip Start</th>
-                <td mat-cell *matCellDef="let row"> {{row.tripstart | lowercase}} </td>
+                <td mat-cell *matCellDef="let row" translate> {{enTable}}.{{row.tripstart | lowercase}} </td>
             </ng-container>
             
             <!-- tripEnd Column -->
             <ng-container matColumnDef="tripend">
                 <th mat-header-cell *matHeaderCellDef class="w-125">Trip End</th>
                 <td mat-cell *matCellDef="let row" class="multirow">
-                    <span *ngFor="let item of row.tripend | keyvalue">
-                        {{item.key | lowercase}}
+                    <span *ngFor="let item of row.tripend | keyvalue" translate>
+                        {{enTable}}.{{item.key | lowercase}}
                     </span>
                 </td>
             </ng-container>
@@ -27,12 +27,11 @@
             <ng-container matColumnDef="tripPercentage">
                 <th mat-header-cell *matHeaderCellDef>Percentage</th>
                 <td mat-cell *matCellDef="let row">
-                    
-                    <span *ngFor="let item of row.tripend | keyvalue; index as i" style="display: block;">
+                    <ng-container *ngFor="let item of row.tripend | keyvalue; index as i">
                         <div [ngClass]="i === 0 ? 'bg-blue': i === 1 ? 'bg-seablue': 'bg-green'" class="horibar" [ngStyle]="{'width': item.value}">
                             {{item.value}}
                         </div>
-                    </span>
+                    </ng-container>
                 </td>
             </ng-container>
             

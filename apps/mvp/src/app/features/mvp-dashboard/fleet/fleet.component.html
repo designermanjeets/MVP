@@ -65,20 +65,28 @@
         <table mat-table [dataSource]="displayData" matSort class="mat-elevation-z8 text-center tripGrid" fxFlex="100">
             <ng-container 
                 [matColumnDef]="column" 
-                *ngFor="let column of displayColumns">
+                *ngFor="let column of displayColumns; index as i; first as isFirst">
                 <th mat-header-cell *matHeaderCellDef
                 [attr.rowspan]="column !== 'hopr members' && column !== 'hopr casual' ? 2 : 1"
                 [ngClass]="{'splitCol': column === 'hopr members' || column === 'hopr casual', 'zeroCol': column === '0'}"
                 class="text-center">
                     <mat-icon 
                         *ngIf="column !== '0'"
-                        [color]="column === 'hopr casual'? 'primary': 'accent'"
+                        [ngClass]="{
+                            'color-lime': column === 'lime',
+                            'color-bird': column === 'bird',
+                            'color-members': column === 'hopr members',
+                            'color-casual': column === 'hopr casual'
+                        }"
                         class="material-icons">
-                        adjust
+                        fiber_manual_record
                     </mat-icon>
                     {{ column }}
                 </th>
-                <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+                <td mat-cell *matCellDef="let element">
+                    <span *ngIf="isFirst; else nontranslate" translate> {{enTable}}.{{ element[column] }}</span>
+                    <ng-template #nontranslate>{{ element[column] }}</ng-template>
+                </td>
             </ng-container>
             <!-- HOPR Column -->
             <ng-container matColumnDef="hopr">

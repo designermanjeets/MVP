@@ -24,6 +24,8 @@ export class TripPurposesComponent implements OnInit {
   doughnut = false;
   gradient = false;
 
+  enTable: string;
+
   constructor(
     private mvpdashboardService: MvpdashboardService
   ) { }
@@ -37,6 +39,7 @@ export class TripPurposesComponent implements OnInit {
     this.dataSource = new MatTableDataSource(val['TRIP PURPOSE']);
     this.dataSource.sort = this.sort;
     this.commutePieResult = this.getCommPie(val['TRIP CATEGORY']);
+    this.enTable = Object.keys(val)[0];
   }
 
   getCommPie(res) {

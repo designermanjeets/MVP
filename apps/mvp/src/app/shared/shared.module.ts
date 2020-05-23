@@ -4,6 +4,8 @@ MvpMarginBottomDirective, MvpMarginLeftDirective } from './mvp-margin/mvp-margin
 import { MvpPaddingTopDirective, MvpPaddingRightDirective,
 MvpPaddingBottomDirective, MvpPaddingLeftDirective } from './mvp-padding/mvp-padding.directive';
 import { MvpMaterialModule } from './mvp-material/mvp-material.module';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 const components = [
   MvpMarginTopDirective,
@@ -21,11 +23,13 @@ const components = [
     ...components
   ],
   imports: [
-    MvpMaterialModule
+    MvpMaterialModule,
+    TranslateModule
   ],
   exports: [
+    ...components,
     MvpMaterialModule,
-    ...components
+    TranslateModule
   ]
 })
 

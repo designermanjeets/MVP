@@ -44,14 +44,11 @@ export class FleetComponent implements OnInit {
   displayData: any;
   @ViewChild(MatSort, {static: true }) sort: MatSort;
 
-  desData = [
-    { trip: 'LIME', Vehicledensity: { max: "DOWNTOWN", min: "SURREY" }, VehicleActivity: { max: "DOWNTOWN", min: "SURREY" } },
-    { trip: 'BIRD', Vehicledensity: { max: "DOWNTOWN1", min: "SURREY" }, VehicleActivity: { max: "DOWNTOWN", min: "SURREY" } },
-    { trip: 'HOPR MEMBERS', Vehicledensity: { max: "DOWNTOWN2", min: "SURREY" }, VehicleActivity: { max: "DOWNTOWN", min: "SURREY" } }
-  ]
+  desData: any;
 
   displayedColumns: string[] = ['trip', 'Vehicledensity', 'VehicleActivity'];
   desnityDataSource: any;
+  enTable: string;
 
   constructor() { }
 
@@ -62,6 +59,7 @@ export class FleetComponent implements OnInit {
   getStubData() { 
     this.commutePieResult = this.convertFleetModes();
     this.chartData = this.extractTrips(this.fleetInsightsArr);
+    this.enTable = Object.keys(fleetInsights)[0]; // Translator
     this.inputData = this.gridData;
     this.desnityDataSource = this.desData;
 

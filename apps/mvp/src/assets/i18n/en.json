@@ -1,0 +1,18 @@
+{
+    "TRIP": {
+        "avg.distance": "Avg. Distance (meters)",
+        "avg.duration": "Avg. Duration (min)",
+        "avg.trips": "Avg. Trips per day",
+        "totaltrips": "Total Trips"
+    },
+    "TRIP PURPOSE": {
+        "public": "Public/Recreation",
+        "commercial": "Commercial",
+        "residential": "Residential"
+    },
+    "Fleet insights": {
+        "WellParked": "Well Parked",
+        "Equity": "Equity",
+        "Co2Footprint": "Co2 Footprint"
+    }
+}

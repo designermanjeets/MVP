@@ -18,8 +18,8 @@ export class TripsComponent implements OnInit {
   legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
-  xAxis: boolean = true;
-  yAxis: boolean = true;
+  xAxis: boolean = false;
+  yAxis: boolean = false;
   timeline: boolean = false;
   curve = shape.curveBasis;
   colorScheme = colorScheme;
@@ -29,6 +29,7 @@ export class TripsComponent implements OnInit {
   inputData: any;
   displayColumns: string[];
   displayData: any;
+  enTable: string;
 
   @ViewChild(MatSort, {static: true }) sort: MatSort;
 
@@ -43,7 +44,7 @@ export class TripsComponent implements OnInit {
 
   getStubData(val) {
     this.chartData = this.extractTrips(val);
-    this.inputData = this.gridData;
+    this.inputData = this.gridData; // Table Data
 
     this.inputColumns = Object.keys(this.gridData[0]);
     this.inputColumns.forEach((element, i) => {
@@ -59,7 +60,6 @@ export class TripsComponent implements OnInit {
         this.chartData = this.extractTrips(val);
         this.inputData = this.gridData;
         this.getTripGridData();
-        console.log(this.gridData);
       };
     });
   }
@@ -81,6 +81,7 @@ export class TripsComponent implements OnInit {
 
   extractTrips(val) {
     const temp = [];
+    this.enTable = Object.keys(val)[0];
     val.TRIP.forEach(ele => {
       let grid = [];
       for (const item in ele) {
