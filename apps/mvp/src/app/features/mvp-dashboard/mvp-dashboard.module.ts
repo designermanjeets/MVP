@@ -9,6 +9,10 @@ import { DashboardBarComponent } from './dashboard-bar/dashboard-bar.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripPurposesComponent } from './trip-purposes/trip-purposes.component';
 import { FleetComponent } from './fleet/fleet.component';
+import { PieComponent } from './trip-purposes/pie/pie.component';
+import { TripChartComponent } from './trips/trip-chart/tripchart.component';
+import { ModespieComponent } from './fleet/modespie/modespie.component';
+import { UtilzichartComponent } from './fleet/utilzichart/utilzichart.component';
 
 const routes: Routes = [
   {
@@ -23,7 +27,11 @@ const routes: Routes = [
     DashboardBarComponent,
     TripsComponent,
     TripPurposesComponent,
-    FleetComponent
+    FleetComponent,
+    PieComponent,
+    TripChartComponent,
+    ModespieComponent,
+    UtilzichartComponent
   ],
   imports: [
     CommonModule,

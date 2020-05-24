@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
-import { MvpMarginTopDirective, MvpMarginRightDirective, 
-MvpMarginBottomDirective, MvpMarginLeftDirective } from './mvp-margin/mvp-margin.directive';
-import { MvpPaddingTopDirective, MvpPaddingRightDirective,
-MvpPaddingBottomDirective, MvpPaddingLeftDirective } from './mvp-padding/mvp-padding.directive';
+import { CommonModule } from '@angular/common';
+import { MvpMarginTopDirective, MvpMarginRightDirective, MvpMarginBottomDirective, MvpMarginLeftDirective }
+from './mvp-margin/mvp-margin.directive';
+import { MvpPaddingTopDirective, MvpPaddingRightDirective, MvpPaddingBottomDirective, MvpPaddingLeftDirective }
+from './mvp-padding/mvp-padding.directive';
 import { MvpMaterialModule } from './mvp-material/mvp-material.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { HighchartsModule } from './highcharts.module';
+import { ChartComponent } from './components/chart/chart.component';
 
 
 const components = [
@@ -15,7 +18,8 @@ const components = [
   MvpPaddingTopDirective,
   MvpPaddingRightDirective,
   MvpPaddingBottomDirective,
-  MvpPaddingLeftDirective
+  MvpPaddingLeftDirective,
+  ChartComponent
 ]
 
 @NgModule({
@@ -23,8 +27,10 @@ const components = [
     ...components
   ],
   imports: [
+    CommonModule,
     MvpMaterialModule,
-    TranslateModule
+    TranslateModule,
+    HighchartsModule
   ],
   exports: [
     ...components,

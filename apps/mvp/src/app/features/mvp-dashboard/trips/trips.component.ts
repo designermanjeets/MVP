@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MvpdashboardService } from './../_services/mvpdashboard.service';
 import { colorScheme, tripData } from './../_models/trip.model';
 import { MatTableDataSource } from '@angular/material/table';
@@ -9,20 +9,13 @@ import * as moment from 'moment'
 @Component({
   selector: 'workspace-trips',
   templateUrl: './trips.component.html',
-  styleUrls: ['./trips.component.scss']
+  styleUrls: ['./trips.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TripsComponent implements OnInit {
   // Chart
   chartData: any[] = [];
-  legend: boolean = false;
-  showLabels: boolean = true;
-  animations: boolean = true;
-  xAxis: boolean = false;
-  yAxis: boolean = false;
-  timeline: boolean = false;
-  curve = shape.curveBasis;
-  colorScheme = colorScheme;
   // Grid Trip
   gridData: any;
   inputColumns: any;
@@ -95,15 +88,15 @@ export class TripsComponent implements OnInit {
             // \\ gridData
             for (const el in timeline.timeline) {
               if(el) {
-                const series = [];
+                const data = [];
                 for (const ele2 in timeline.timeline[el]) {
                   if(ele2) {
                     const time = moment.utc(ele2, "HH:mm");
                     const name = time.format('LT');
-                    series.push({value: timeline.timeline[el][ele2], name})
+                    data.push(Number(timeline.timeline[el][ele2]))
                   }
                 }
-                temp.push({'name': item, 'series': series});
+                temp.push({'name': item, data});
               }
             }
           });
@@ -111,6 +104,11 @@ export class TripsComponent implements OnInit {
       }
     });
     return temp;
+  }
+
+  checkForBrace(data) {
+    console.log(data);
+    return data;
   }
 
 }

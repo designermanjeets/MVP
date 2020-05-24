@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { displayedColsPurpose, colorScheme, tripPurposeData } from './../_models/trip.model';
@@ -7,8 +7,10 @@ import { MvpdashboardService } from './../_services/mvpdashboard.service';
 @Component({
   selector: 'workspace-trip-purposes',
   templateUrl: './trip-purposes.component.html',
-  styleUrls: ['./trip-purposes.component.scss']
+  styleUrls: ['./trip-purposes.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class TripPurposesComponent implements OnInit {
   displayedColumns: string[] = displayedColsPurpose;
   dataSource: any;
@@ -16,13 +18,6 @@ export class TripPurposesComponent implements OnInit {
 
   //Pie
   commutePieResult: any[] = [];
-  view: any[] = [400, 200];
-  showLegend = true;
-  colorScheme = colorScheme;
-  showLabels = false;
-  explodeSlices = false;
-  doughnut = false;
-  gradient = false;
 
   enTable: string;
 
@@ -46,7 +41,7 @@ export class TripPurposesComponent implements OnInit {
     const pieArr = [];
     for (const iter in res) {
       if(iter) {
-        pieArr.push({name: iter, value: res[iter]})
+        pieArr.push({name: iter, y: Number(res[iter])})
       }
     }
     return pieArr;

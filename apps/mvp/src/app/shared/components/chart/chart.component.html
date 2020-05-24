@@ -1,0 +1,11 @@
+<!-- <button mat-raised-button (click)="updateFromParent()">UPDATE</button> -->
+<highcharts-chart 
+    [Highcharts]="highcharts" 
+    [constructorType]="chartConstructor" 
+    [options]="chartOptions" 
+    [callbackFunction]="chartCallback"
+    [update]="updateFlag$ | async" 
+    (updateChange)="onUpdateChange($event)" 
+    [oneToOne]="oneToOneFlag" 
+    style="width: 100%; display: block;"
+></highcharts-chart>

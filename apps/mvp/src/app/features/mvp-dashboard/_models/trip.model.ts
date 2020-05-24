@@ -5,8 +5,8 @@ export const tripData = {
             "last updated":"5 mins ago",
             "lime":[
                 {
-                    "avg.distance":"659",
-                    "avg.duration":"5:19",
+                    "avg.distance":"659 (+26%)",
+                    "avg.duration":"5:19 (-10%)",
                     "avg.trips":"750",
                     "totaltrips":"900,000",
                     "timeline":[
@@ -21,9 +21,9 @@ export const tripData = {
             ],
             "bird":[
                 {
-                    "avg.distance":"659",
-                    "avg.duration":"5:19",
-                    "avg.trips":"750",
+                    "avg.distance":"659 (+21%)",
+                    "avg.duration":"5:19 (-14%)",
+                    "avg.trips":"750 (+15%)",
                     "totaltrips":"900,000",
                     "timeline":[
                         {
@@ -37,8 +37,8 @@ export const tripData = {
             ],
             "members":[
                 {
-                    "avg.distance":"659",
-                    "avg.duration":"5:19",
+                    "avg.distance":"659 (+16%)",
+                    "avg.duration":"5:19 (-4%)",
                     "avg.trips":"750",
                     "totaltrips":"900,000",
                     "timeline":[
@@ -53,8 +53,8 @@ export const tripData = {
             ],
             "casual":[
                 {
-                    "avg.distance":"659",
-                    "avg.duration":"5:19",
+                    "avg.distance":"659 (+22%)",
+                    "avg.duration":"5:19 (+15%)",
                     "avg.trips":"750",
                     "totaltrips":"900,000",
                     "timeline":[
@@ -101,7 +101,8 @@ export const tripPurposeData = {
     "TRIP CATEGORY": {
         "COMMUTE": "30",
         "LEISURE": "25",
-        "BUSINESS": "20"
+        "BUSINESS": "25",
+        "OTHERS": "20"
     }
 };
 
@@ -112,3 +113,25 @@ export const colorScheme = {
 export const displayedColsPurpose: string[] = [ 'tripstart', 'tripend', 'tripPercentage' ];
 
 export const puposeInputCols: string[] = ['avg.distance', 'avg.duration', 'avg.trips', 'totaltrips'];
+
+export const chartColors = [
+    '#5AA454', 
+    '#E44D25', 
+    '#CFC0BB', 
+    '#7aa3e5', 
+    '#64E572', 
+    '#FF9655', 
+    '#FFF263', 
+    '#6AF9C4'
+]
+
+export const dateTimeLabelFormats = {
+    millisecond: '%a, %e %b, %H:%M:%S.%L',
+    second: '%a, %e %b, %H:%M:%S',
+    minute: '%a, %e %b, %H:%M',
+    hour: '%a, %e %b, %H:%M',
+    day: '%a, %e %b, %Y',
+    week: 'Week from %a, %e %b, %Y',
+    month: '%b %Y',
+    year: '%Y'
+  }

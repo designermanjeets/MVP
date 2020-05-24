@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { fleetModes, fleetInsights, colorScheme } from './../_models/fleet.models';
@@ -8,7 +8,8 @@ import * as moment from 'moment'
 @Component({
   selector: 'workspace-fleet',
   templateUrl: './fleet.component.html',
-  styleUrls: ['./fleet.component.scss']
+  styleUrls: ['./fleet.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class FleetComponent implements OnInit {
@@ -18,24 +19,8 @@ export class FleetComponent implements OnInit {
 
   // Chart
   chartData: any[] = [];
-  legend: boolean = false;
-  animations: boolean = true;
-  xAxis: boolean = true;
-  yAxis: boolean = true;
-  timeline: boolean = false;
-  curve = shape.curveBasis;
-  viewChart = [400, 245]
-
-  
   //Pie
   commutePieResult: any[] = [];
-  view: any[] = [400, 200];
-  showLegend = true;
-  colorScheme = colorScheme;
-  showLabelsPie = false;
-  explodeSlices = false;
-  doughnut = false;
-  gradient = false;
 
   gridData: any;
   inputColumns: any;
@@ -81,7 +66,7 @@ export class FleetComponent implements OnInit {
   convertFleetModes() {
     const pieArr = [];
     this.fleetModesArr.forEach(ele => {
-      pieArr.push({name: ele.modeName, value: ele.percentage})
+      pieArr.push({name: ele.modeName, y: Number(ele.percentage)})
     });
     return pieArr;
   }
@@ -120,15 +105,15 @@ export class FleetComponent implements OnInit {
             this.desData = density;
             // \\ gridData
             ele[item]['Utilization']['timeline'].forEach((timeline, i) => {
-              const series = [];
+              const data = [];
               for (const ele2 in timeline) {
                 if(ele2) {
                   const time = moment.utc(ele2, "HH:mm");
                   const name = time.format('LT');
-                  series.push({value: timeline[ele2], name})
+                  data.push(Number(timeline[ele2]))
                 }
               }
-              temp.push({'name': item, 'series': series});
+              temp.push({'name': item, data});
             });
           }
       }

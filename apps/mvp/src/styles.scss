@@ -5,14 +5,15 @@
 html, body, .fullHeight { height: 100%; background-color: #e5eef4; }
 .primaryBG { background-color: #143055; }
 body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
-.mat-card { font-family: 'Baloo Chettan 2', cursive; }
+.mat-card, .mat-table { font-family: 'Baloo Chettan 2', cursive; }
 
 .mat-table {
+    font-size: 15px; font-weight: 500;
     thead {
         background-color: #e5eef4;
         text-transform: uppercase;
         .mat-header-cell {
-            font-size: 13px;
+            font-size: 15px;
             color: #444;
             text-transform: uppercase;
             .material-icons {
@@ -49,6 +50,7 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
         border-bottom-color: rgba(0, 0, 0, 0.05);
         padding-left: 10px;
         padding-right: 10px;
+        font-size: 15px;
     }
 }
 
@@ -82,6 +84,7 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .font17 { font-size: 17px !important; }
 .text-uppercase { text-transform: uppercase; }
 .pos-rel { position: relative; }
+.zIndex { z-index: 1; }
 .bg-blue { background-color: #0d47a1; }
 .bg-seablue { background-color: #00a2e8; }
 .bg-green { background-color: #22b14c; }

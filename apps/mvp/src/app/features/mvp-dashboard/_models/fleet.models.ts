@@ -18,7 +18,7 @@ export const fleetInsights = {
 "Fleet insights": [{
                   "LIME":
                   {
-                      "WellParked": "75%",
+                      "WellParked": "75% (+16%)",
                       "Equity" : "935,000",
                       "Co2Footprint": "935,500",
                       "Maintenence" : {
@@ -52,7 +52,7 @@ export const fleetInsights = {
               },{
                 "BIRD":
                 {
-                    "WellParked": "75%",
+                    "WellParked": "75% (+26%)",
                     "Equity" : "935,000",
                     "Co2Footprint": "935,500",
                     "Maintenence" : {
@@ -87,7 +87,7 @@ export const fleetInsights = {
               {
                 "HOPR MEMBERS": 
                   {
-                      "WellParked": "75%",
+                      "WellParked": "75% (-18%)",
                       "Equity" : "935,000",
                       "Co2Footprint": "935,500",
                       "Maintenence" : {
@@ -163,3 +163,25 @@ export const colorScheme = {
 };
 
 export const displayedColsfleet: string[] = [ 'tripstart', 'tripend', 'tripPercentage' ];
+
+export const chartColors = [
+    '#5AA454', 
+    '#E44D25', 
+    '#CFC0BB', 
+    '#7aa3e5', 
+    '#64E572', 
+    '#FF9655', 
+    '#FFF263', 
+    '#6AF9C4'
+]
+
+export const dateTimeLabelFormats = {
+    millisecond: '%a, %e %b, %H:%M:%S.%L',
+    second: '%a, %e %b, %H:%M:%S',
+    minute: '%a, %e %b, %H:%M',
+    hour: '%a, %e %b, %H:%M',
+    day: '%a, %e %b, %Y',
+    week: 'Week from %a, %e %b, %Y',
+    month: '%b %Y',
+    year: '%Y'
+  }

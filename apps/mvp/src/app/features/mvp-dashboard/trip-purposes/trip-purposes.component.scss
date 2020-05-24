@@ -19,13 +19,7 @@ h3 {
 
 .puposePieChart {
     min-height: 200px; position: relative;
-    ::ng-deep .chart-legend {
-        position: absolute;
-        min-width: 150px;
-        right: 20%;
-        top: 20%;
-        > div { width: auto !important;
-            .legend-title { display: none; }
-        }
-    }
+}
+.tripPurposeGrid ::ng-deep {
+    td.mat-cell { padding-top: 5px; padding-bottom: 5px; }
 }

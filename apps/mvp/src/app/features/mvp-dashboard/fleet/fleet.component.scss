@@ -18,28 +18,12 @@ h3 {
     .botborder { display: block; height: 6px; }
 }
 .puposePieChart {
-    min-height: 200px; position: relative;
-    ::ng-deep .chart-legend {
-        position: absolute;
-        min-width: 100%;
-        left: 0;
-        top: 50px;
-        > div { width: auto !important;
-            .legend-title { display: none; }
-        }
-        .legend-labels {
-            background: transparent; 
-            .legend-label { display: inline-block;}
-        }
-    }
-    ngx-charts-pie-chart {
-        margin-left: -50px;
-        display: block;
+    .modepiewrap {
+        margin-top: 0;
     }
 }
 
 .utili ::ng-deep {
-    margin-left: -35px;
     display: block;
     max-height: 225px;
     h3 { margin-left: 40px; }
