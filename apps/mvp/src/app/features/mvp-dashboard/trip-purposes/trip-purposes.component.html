@@ -41,6 +41,6 @@
     </section>
     <section fxLayout="row" [marginTop]="25" class="puposePieChart">
         <!-- Pie Chart -->
-        <workspace-piepurpose-chart [commutePieResult]="commutePieResult" fxFlex="100"></workspace-piepurpose-chart>
+        <workspace-piepurpose-chart *ngIf="commutePieResult" [commutePieResult]="commutePieResult" fxFlex="100"></workspace-piepurpose-chart>
     </section>
 </mat-card>

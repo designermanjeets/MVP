@@ -27,14 +27,14 @@
             <!-- Modes -->
             <h3 class="text-uppercase pos-rel zIndex">Modes</h3>
             <div class="modepiewrap">
-                <workspace-modespie [commutePieResult]="commutePieResult"></workspace-modespie>
+                <workspace-modespie *ngIf="commutePieResult" [commutePieResult]="commutePieResult"></workspace-modespie>
             </div>
         </section>
         <!-- ./ Modes-->
         <!-- Utilization -->
         <section fxFlex="60" class="utili">
             <h3 class="text-uppercase">Utilization</h3>
-            <workspace-tripchart [chartData]="chartData"></workspace-tripchart>
+            <workspace-tripchart *ngIf="chartData" [chartData]="chartData"></workspace-tripchart>
         </section>
         <!-- ./Utilization -->
     </section>

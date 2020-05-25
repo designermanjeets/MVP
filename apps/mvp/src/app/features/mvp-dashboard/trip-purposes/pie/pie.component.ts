@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ChartComponent } from './../../../../shared/components/chart/chart.component';
 import { chartColors } from './../../_models/trip.model';
 
+import { Chart } from 'highcharts/highcharts.src';
 import * as Highcharts from 'highcharts/highcharts.src';
 import highcharts3D from 'highcharts/highcharts-3d.src';
 highcharts3D(Highcharts);
@@ -15,13 +16,19 @@ highcharts3D(Highcharts);
 export class PieComponent extends ChartComponent {
 
   highcharts = Highcharts;
+  localOptions: Highcharts.Options = {};
+  private _commutePieResult: any;
 
-  @Input() commutePieResult: any;
-
+  @Input('commutePieResult') 
+  set commutePieResult(value: any) {
+    if(value && value.length > 0) {
+      this._commutePieResult = value;
+    }
+  }
 
   onChartLoad = () => {
 
-    const localOptions: Highcharts.Options = {
+    this.localOptions = {
       chart: {
         type: 'pie',
         options3d: {
@@ -54,26 +61,26 @@ export class PieComponent extends ChartComponent {
             click: this._callback.bind(this)
         },
       }
-     },
-     series : [{
-        type: 'pie',
-        name: 'Trip Purpose',
-        animation: false,
-        data: this.commutePieResult,
+      },
+      series : [{
+          type: 'pie',
+          name: 'Trip Purpose',
+          animation: false,
+          data: this._commutePieResult,
+        }
+      ],
+      tooltip: {
+        backgroundColor: '#FFFFFF',
+        borderWidth: 2,
+        shadow: true,
+        useHTML: true,
+        style: {
+            padding: '0'
+        }
       }
-     ],
-     tooltip: {
-      backgroundColor: '#FFFFFF',
-      borderWidth: 2,
-      shadow: true,
-      useHTML: true,
-      style: {
-          padding: '0'
-      }
-     }
     }
 
-    this.chartComponent.updateChart(this.highcharts, localOptions);
+    this.chartComponent.updateChart(this.highcharts, this.localOptions);
   }
 
   private _callback(chart) {

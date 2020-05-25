@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ChartComponent } from './../../../../shared/components/chart/chart.component';
 import { chartColors } from './../../_models/trip.model';
 
@@ -9,18 +9,26 @@ highcharts3D(Highcharts);
 @Component({
   selector: 'workspace-tripchart',
   templateUrl: './tripchart.component.html',
-  styleUrls: ['./tripchart.component.scss']
+  styleUrls: ['./tripchart.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class TripChartComponent extends ChartComponent {
 
   highcharts = Highcharts;
+  localOptions: Highcharts.Options = {};
+  private _chartData: any;
 
-  @Input() chartData: any;
+  @Input('chartData') 
+  set chartData(value: any) {
+    if(value && value.length > 0) {
+      this._chartData = value;
+    }
+  }
+
+  onChartLoad() {
   
-  onChartLoad = () => {
-  
-    const localOptions: Highcharts.Options = {
+    this.localOptions = {
       chart: { 
         type: 'spline',
         height: 270
@@ -47,10 +55,10 @@ export class TripChartComponent extends ChartComponent {
         }
       }
     };
-  
-    localOptions.series = this.chartData
 
-    this.chartComponent.updateChart(this.highcharts, localOptions);
+    this.localOptions.series = this._chartData;
+
+    this.chartComponent.updateChart(this.highcharts, this.localOptions);
   }
 
 }

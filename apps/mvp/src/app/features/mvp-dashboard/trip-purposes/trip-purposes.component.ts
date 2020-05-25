@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { displayedColsPurpose, colorScheme, tripPurposeData } from './../_models/trip.model';
@@ -17,20 +17,21 @@ export class TripPurposesComponent implements OnInit {
   @ViewChild(MatSort, {static: true }) sort: MatSort;
 
   //Pie
-  commutePieResult: any[] = [];
+  commutePieResult: any[];
 
   enTable: string;
 
   constructor(
-    private mvpdashboardService: MvpdashboardService
+    private mvpdashboardService: MvpdashboardService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
-    // this.getTripsPurposeTable();
-    this.getStubData(tripPurposeData);
+    // this.getTripsPurposeTable(); // Load Data from Service
+    this.getInitData(tripPurposeData); // Load Stub Data
   }
 
-  getStubData(val) {
+  getInitData(val) {
     this.dataSource = new MatTableDataSource(val['TRIP PURPOSE']);
     this.dataSource.sort = this.sort;
     this.commutePieResult = this.getCommPie(val['TRIP CATEGORY']);
@@ -50,9 +51,8 @@ export class TripPurposesComponent implements OnInit {
   getTripsPurposeTable() {
     this.mvpdashboardService.getTripsPurposeTable().subscribe(val => {
       if (val) {
-        this.dataSource = new MatTableDataSource(val['TRIP PURPOSE']);
-        this.dataSource.sort = this.sort;
-        this.commutePieResult = this.getCommPie(val['TRIP CATEGORY']);
+        this.getInitData(val);
+        this.cdr.detectChanges();
       }
     });
   }

@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MvpdashboardService } from './../_services/mvpdashboard.service';
 import { colorScheme, tripData } from './../_models/trip.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import * as shape from 'd3-shape';
 import * as moment from 'moment'
+import * as _ from 'lodash';
 
 @Component({
   selector: 'workspace-trips',
@@ -15,7 +15,7 @@ import * as moment from 'moment'
 
 export class TripsComponent implements OnInit {
   // Chart
-  chartData: any[] = [];
+  chartData: any[];
   // Grid Trip
   gridData: any;
   inputColumns: any;
@@ -27,15 +27,16 @@ export class TripsComponent implements OnInit {
   @ViewChild(MatSort, {static: true }) sort: MatSort;
 
   constructor(
-    private mvpdashboardService: MvpdashboardService
+    private mvpdashboardService: MvpdashboardService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    // this.getTrips();
-    this.getStubData(tripData);
+    // this.getTrips(); // Load Data from Service
+    this.getInitData(tripData); // Load Stub Data
   }
 
-  getStubData(val) {
+  getInitData(val) {
     this.chartData = this.extractTrips(val);
     this.inputData = this.gridData; // Table Data
 
@@ -50,9 +51,8 @@ export class TripsComponent implements OnInit {
   getTrips() {
     this.mvpdashboardService.getTrips().subscribe(val => {
       if (val) {
-        this.chartData = this.extractTrips(val);
-        this.inputData = this.gridData;
-        this.getTripGridData();
+        this.getInitData(val);
+        this.cdr.detectChanges();
       };
     });
   }
@@ -107,7 +107,7 @@ export class TripsComponent implements OnInit {
   }
 
   checkForBrace(data) {
-    console.log(data);
+    // console.log(data);​
     return data;
   }
 

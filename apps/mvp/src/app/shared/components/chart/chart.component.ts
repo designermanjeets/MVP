@@ -1,5 +1,5 @@
 import {  OnInit, Optional, ViewChild, Output, Component, ChangeDetectionStrategy, EventEmitter,
-          ChangeDetectorRef }
+          ChangeDetectorRef, AfterViewInit }
 from '@angular/core';
 
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
@@ -16,7 +16,7 @@ import * as _ from 'lodash';
   changeDetection: ChangeDetectionStrategy.Default
 })
 
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, AfterViewInit {
   @Output() readonly chartLoad = new EventEmitter<void>();
 
   // For child reference
@@ -40,6 +40,10 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
     this.initChart();
+  }
+
+  ngAfterViewInit(): void {
+    // this.initChart();
   }
 
   private initChart = () => {

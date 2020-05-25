@@ -7,7 +7,7 @@
     <!-- Chart -->
     <section fxLayout="row wrap" [marginTop]="30" [marginBottom]="30" class="chartwrap pos-rel">
         <div fxFlex="65">
-            <workspace-tripchart [chartData]="chartData"></workspace-tripchart>
+            <workspace-tripchart *ngIf="chartData" [chartData]="chartData"></workspace-tripchart>
         </div>
         <h3 fxFlex class="totaltrips grayblue-color" [marginTop]="50">4861<span>Total Trips</span></h3>
     </section>

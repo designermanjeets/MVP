@@ -18,9 +18,9 @@ export class FleetComponent implements OnInit {
   fleetInsightsArr = fleetInsights['Fleet insights'];
 
   // Chart
-  chartData: any[] = [];
+  chartData: any[];
   //Pie
-  commutePieResult: any[] = [];
+  commutePieResult: any[];
 
   gridData: any;
   inputColumns: any;
@@ -38,10 +38,10 @@ export class FleetComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getStubData();
+    this.getInitData(); // Load Stub Data
   }
 
-  getStubData() { 
+  getInitData() { 
     this.commutePieResult = this.convertFleetModes();
     this.chartData = this.extractTrips(this.fleetInsightsArr);
     this.enTable = Object.keys(fleetInsights)[0]; // Translator
