@@ -13,38 +13,39 @@
     </section>
     <!-- Table -->
     <section fxLayout="row">
-        <table mat-table [dataSource]="displayData" matSort class="mat-elevation-z8 text-center tripGrid" fxFlex="100">
+        <table mat-table [dataSource]="tripGridData" matSort class="mat-elevation-z8 text-center tripGrid" fxFlex="100">
             <ng-container 
                 [matColumnDef]="column" 
                 *ngFor="let column of displayColumns; index as i; first as isFirst">
                 <th mat-header-cell *matHeaderCellDef
-                [attr.rowspan]="column !== 'members' && column !== 'casual' ? 2 : 1"
-                [ngClass]="{'splitCol': column === 'members' || column === 'casual', 'zeroCol': column === '0'}"
                 class="text-center">
-                    <mat-icon 
-                        *ngIf="column !== '0'"
+                    <span translate> {{enTable}}.{{ column }}</span>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <span *ngIf="isFirst; else nontranslate" translate>
+                    <mat-icon
                         [ngClass]="{
-                            'color-lime': column === 'lime',
-                            'color-bird': column === 'bird',
-                            'color-members': column === 'members',
-                            'color-casual': column === 'casual'
+                            'color-lime': element[column] === 'lime',
+                            'color-bird': element[column] === 'bird',
+                            'color-members': element[column] === 'members',
+                            'color-casual': element[column] === 'casual'
                         }"
                         class="material-icons">
                         fiber_manual_record
                     </mat-icon>
-                    {{ column }}
-                </th>
-                <td mat-cell *matCellDef="let element">
-                    <span *ngIf="isFirst; else nontranslate" translate> {{enTable}}.{{ element[column] }}</span>
-                    <ng-template #nontranslate> {{ checkForBrace(element[column]) }} </ng-template>
+                        {{enTable}}.{{ element[column] }}
+                    </span>
+                    <ng-template #nontranslate>
+                        <span [innerHTML]="checkForBrace(element[column])"></span>
+                    </ng-template>
                 </td>
             </ng-container>
             <!-- HOPR Column -->
-            <ng-container matColumnDef="hopr">
+            <!-- <ng-container matColumnDef="hopr">
                 <th mat-header-cell *matHeaderCellDef colspan="2" class="colhopr"> HOPR </th>
-            </ng-container>
+            </ng-container> -->
             <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
-            <tr mat-header-row *matHeaderRowDef="['hopr']"></tr>
+            <!-- <tr mat-header-row *matHeaderRowDef="['hopr']"></tr> -->
             <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
         </table>
     </section>

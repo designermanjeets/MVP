@@ -6,18 +6,20 @@
     <span class="font14">Last updated 5 min ago</span>
     <!-- Fleet -->
     <section fxLayout="row" fxLayoutAlign="start start" class="fleetmode">
-        <section fxFlex *ngFor="let item of fleetInsightsArr">
-            <ng-container *ngFor="let op of item | keyvalue">
-                <h2 class="grayblue-color" [marginBottom]="0">{{op.value.TotalVehicles.count}}
-                    <span 
-                        [ngClass]="op.key ==='LIME' ? 'color-green': op.key ==='HOPR MEMBERS' ? 'color-blue': 'color-seablue'">
-                        ({{op.value.TotalVehicles.capped}})
-                    </span>
-                </h2>
-                <h4 [marginTop]="5" class="grayblue-color">{{op.key}}</h4>
-                <p [marginBottom]="4">{{op.value.TotalVehicles.available}} are available</p>
-                <p [marginTop]="0">{{op.value.TotalVehicles.outOfService}} are out of service</p>
-                <span class="botborder" [ngClass]="op.key ==='LIME' ? 'bg-green': op.key ==='HOPR MEMBERS' ? 'bg-blue': 'bg-seablue'"></span>
+        <section fxFlex *ngFor="let item of fleetInsightsArr; last as isLast" [hidden]="isLast">
+            <ng-container>
+                <ng-container *ngFor="let op of item | keyvalue">
+                    <h2 class="grayblue-color" [marginBottom]="0">{{op.value.TotalVehicles.count}}
+                        <span 
+                            [ngClass]="op.key ==='LIME' ? 'color-green': op.key ==='HOPR MEMBERS' ? 'color-blue': 'color-seablue'">
+                            ({{op.value.TotalVehicles.capped}})
+                        </span>
+                    </h2>
+                    <h4 [marginTop]="5" class="grayblue-color">{{op.key}}</h4>
+                    <p [marginBottom]="4">{{op.value.TotalVehicles.available}} are available</p>
+                    <p [marginTop]="0">{{op.value.TotalVehicles.outOfService}} are out of service</p>
+                    <span class="botborder" [ngClass]="op.key ==='LIME' ? 'bg-green': op.key ==='HOPR MEMBERS' ? 'bg-blue': 'bg-seablue'"></span>
+                </ng-container>
             </ng-container>
         </section>
     </section>
@@ -40,38 +42,34 @@
     </section>
     <!-- Fleet Grid -->
     <section class="fleetGrid" fxLayout="row" [marginTop]="25" fxLayoutAlign="start start">
-        <table mat-table [dataSource]="displayData" matSort class="mat-elevation-z8 text-center tripGrid" fxFlex="100">
+        <table mat-table [dataSource]="fleetGridData" matSort class="mat-elevation-z8 text-center fleetGrid" fxFlex="100">
             <ng-container 
                 [matColumnDef]="column" 
                 *ngFor="let column of displayColumns; index as i; first as isFirst">
                 <th mat-header-cell *matHeaderCellDef
-                [attr.rowspan]="column !== 'hopr members' && column !== 'hopr casual' ? 2 : 1"
-                [ngClass]="{'splitCol': column === 'hopr members' || column === 'hopr casual', 'zeroCol': column === '0'}"
                 class="text-center">
-                    <mat-icon 
-                        *ngIf="column !== '0'"
-                        [ngClass]="{
-                            'color-lime': column === 'lime',
-                            'color-bird': column === 'bird',
-                            'color-members': column === 'hopr members',
-                            'color-casual': column === 'hopr casual'
-                        }"
-                        class="material-icons">
-                        fiber_manual_record
-                    </mat-icon>
-                    {{ column }}
+                    <span translate> {{enTable}}.{{ column }}</span>
                 </th>
                 <td mat-cell *matCellDef="let element">
-                    <span *ngIf="isFirst; else nontranslate" translate class="text-uppercase"> {{enTable}}.{{ element[column] }}</span>
-                    <ng-template #nontranslate>{{ element[column] }}</ng-template>
+                    <span *ngIf="isFirst; else nontranslate" translate class="text-uppercase">
+                        <mat-icon 
+                            [ngClass]="{
+                                'color-lime': element[column] === 'lime',
+                                'color-bird': element[column] === 'bird',
+                                'color-members': element[column] === 'hopr members',
+                                'color-casual': element[column] === 'hopr casual'
+                            }"
+                            class="material-icons">
+                            fiber_manual_record
+                        </mat-icon>
+                        {{enTable}}.{{ element[column] }}
+                    </span>
+                    <ng-template #nontranslate>
+                        <span [innerHTML]="checkForBrace(element[column])"></span>
+                    </ng-template>
                 </td>
             </ng-container>
-            <!-- HOPR Column -->
-            <ng-container matColumnDef="hopr">
-                <th mat-header-cell *matHeaderCellDef colspan="2" class="colhopr"> HOPR </th>
-            </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
-            <tr mat-header-row *matHeaderRowDef="['hopr']"></tr>
             <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
         </table>
     </section>

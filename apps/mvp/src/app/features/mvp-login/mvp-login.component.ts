@@ -20,6 +20,7 @@ export class MvpLoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.mvpLoginService.logout(); //  Clear Session
   }
 
   onSubmit() {

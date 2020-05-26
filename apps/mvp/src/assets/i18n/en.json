@@ -3,7 +3,12 @@
         "avg.distance": "Avg. Distance (meters)",
         "avg.duration": "Avg. Duration (min)",
         "avg.trips": "Avg. Trips per day",
-        "totaltrips": "Total Trips"
+        "totaltrips": "Total Trips",
+        "lime": "Lime",
+        "bird": "Bird",
+        "members": "Members",
+        "casual": "Casual",
+        "trip": "Trip"
     },
     "TRIP PURPOSE": {
         "public": "Public/Recreation",
@@ -13,6 +18,11 @@
     "Fleet insights": {
         "WellParked": "Well Parked",
         "Equity": "Equity",
-        "Co2Footprint": "Co2 Footprint"
+        "Co2Footprint": "Co2 Footprint",
+        "lime": "Lime",
+        "bird": "Bird",
+        "hopr members": "Members",
+        "hopr casual": "Casual",
+        "trip": "Trip"
     }
 }

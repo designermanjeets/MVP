@@ -34,16 +34,10 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
             padding-right: 0;
         }
     }
-    &.tripGrid {
-        tr.mat-header-row {
-            height: 25px;
-        }
-    }
     tbody {
         td.mat-cell:last-of-type {
             padding-right: 0;
         }
-        // tr td { text-transform: capitalize; }
     }
     tr.mat-row, tr.mat-footer-row, tr.mat-header-row {
         height: 40px;

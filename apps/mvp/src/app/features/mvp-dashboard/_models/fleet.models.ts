@@ -18,7 +18,7 @@ export const fleetInsights = {
 "Fleet insights": [{
                   "LIME":
                   {
-                      "WellParked": "75% (+16%)",
+                      "WellParked": "75% (+18%)",
                       "Equity" : "935,000",
                       "Co2Footprint": "935,500",
                       "Maintenence" : {

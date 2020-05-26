@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { fleetModes, fleetInsights, colorScheme } from './../_models/fleet.models';
-import * as shape from 'd3-shape';
+import { MvpdashboardService } from './../_services/mvpdashboard.service';
 import * as moment from 'moment'
 
 @Component({
@@ -23,10 +23,8 @@ export class FleetComponent implements OnInit {
   commutePieResult: any[];
 
   gridData: any;
-  inputColumns: any;
-  inputData: any;
   displayColumns: string[];
-  displayData: any;
+  fleetGridData: any;
   @ViewChild(MatSort, {static: true }) sort: MatSort;
 
   desData: any;
@@ -35,7 +33,9 @@ export class FleetComponent implements OnInit {
   desnityDataSource: any;
   enTable: string;
 
-  constructor() { }
+  constructor(
+    private mvpdashboardService: MvpdashboardService
+  ) { }
 
   ngOnInit(): void {
     this.getInitData(); // Load Stub Data
@@ -45,22 +45,19 @@ export class FleetComponent implements OnInit {
     this.commutePieResult = this.convertFleetModes();
     this.chartData = this.extractTrips(this.fleetInsightsArr);
     this.enTable = Object.keys(fleetInsights)[0]; // Translator
-    this.inputData = this.gridData;
-    this.desnityDataSource = this.desData;
-
-    this.inputColumns = Object.keys(this.gridData[0]);
-    this.inputColumns.filter(key => key.trip)
-    this.inputColumns.forEach((element, i) => {
-      element === 'trip' && this.inputColumns.splice(i, 1);
-    });
   
-    this.getTripGridData();
-  }
-
-  getTripGridData() {
-    this.displayColumns = ['0'].concat(this.inputData.map(x => x.trip.toString()));
-    this.displayData = new MatTableDataSource(this.inputColumns.map(x => this.formatInputRow(x)));
-    this.displayData.sort = this.sort;
+    this.fleetGridData = new MatTableDataSource(this.gridData);
+    this.fleetGridData.sort = this.sort;
+  
+    this.displayColumns = Object.keys(this.gridData[0]);
+    this.displayColumns.forEach((element, i) => {
+      if( element === 'trip' ) {
+        this.displayColumns.splice(i, 1);
+        this.displayColumns.unshift('trip');
+      }
+    });
+    
+    this.desnityDataSource = this.desData;
   }
 
   convertFleetModes() {
@@ -69,15 +66,6 @@ export class FleetComponent implements OnInit {
       pieArr.push({name: ele.modeName, y: Number(ele.percentage)})
     });
     return pieArr;
-  }
-
-  formatInputRow(row) {
-    const output = {};
-    output[0] = row;
-    for (let i = 0; i < this.inputData.length; ++i) {
-      output[this.inputData[i].trip] = this.inputData[i][row];
-    }
-    return output;
   }
 
   extractTrips(val) {
@@ -119,6 +107,10 @@ export class FleetComponent implements OnInit {
       }
     });
     return temp;
+  }
+
+  checkForBrace(data) {
+    return this.mvpdashboardService.getNegPosValue(data);
   }
 
 }

@@ -5,7 +5,7 @@ export const tripData = {
             "last updated":"5 mins ago",
             "lime":[
                 {
-                    "avg.distance":"659 (+26%)",
+                    "avg.distance":"659 (+16%)",
                     "avg.duration":"5:19 (-10%)",
                     "avg.trips":"750",
                     "totaltrips":"900,000",
@@ -21,7 +21,7 @@ export const tripData = {
             ],
             "bird":[
                 {
-                    "avg.distance":"659 (+21%)",
+                    "avg.distance":"500 (+21%)",
                     "avg.duration":"5:19 (-14%)",
                     "avg.trips":"750 (+15%)",
                     "totaltrips":"900,000",

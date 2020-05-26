@@ -30,7 +30,20 @@ h3 {
 }
 .splitCol { bottom: -25px; position: relative; }
 .colhopr { text-align: center; position: relative; top: -25px; }
-.fleetGrid ::ng-deep tbody tr td:first-of-type { text-align: left; }
+.fleetGrid ::ng-deep tbody tr td:first-of-type { 
+    text-align: left;
+    span {
+        margin-top: 10px;
+        display: block;
+    }
+    mat-icon {
+        margin-top: 0px;
+        vertical-align: top;
+        font-size: 14px;
+        margin-right: 0;
+        width: 15px;
+    }
+ }
 
 ::ng-deep .densityGrid {
     tr.mat-header-row {

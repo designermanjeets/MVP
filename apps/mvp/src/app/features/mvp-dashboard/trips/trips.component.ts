@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import * as moment from 'moment'
 import * as _ from 'lodash';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'workspace-trips',
@@ -18,10 +19,8 @@ export class TripsComponent implements OnInit {
   chartData: any[];
   // Grid Trip
   gridData: any;
-  inputColumns: any;
-  inputData: any;
+  tripGridData: any;
   displayColumns: string[];
-  displayData: any;
   enTable: string;
 
   @ViewChild(MatSort, {static: true }) sort: MatSort;
@@ -38,14 +37,10 @@ export class TripsComponent implements OnInit {
 
   getInitData(val) {
     this.chartData = this.extractTrips(val);
-    this.inputData = this.gridData; // Table Data
+    this.tripGridData = this.gridData; // Table Data
 
-    this.inputColumns = Object.keys(this.gridData[0]);
-    this.inputColumns.forEach((element, i) => {
-      element === 'trip' && this.inputColumns.splice(i, 1);
-    });
-    
-    this.getTripGridData();
+    this.displayColumns = Object.keys(this.gridData[0]);
+    this.tripGridData.sort = this.sort;
   }
 
   getTrips() {
@@ -55,21 +50,6 @@ export class TripsComponent implements OnInit {
         this.cdr.detectChanges();
       };
     });
-  }
-
-  getTripGridData() {
-    this.displayColumns = ['0'].concat(this.inputData.map(x => x.trip.toString()));
-    this.displayData = new MatTableDataSource(this.inputColumns.map(x => this.formatInputRow(x)));
-    this.displayData.sort = this.sort;
-  }
-
-  formatInputRow(row) {
-    const output = {};
-    output[0] = row;
-    for (let i = 0; i < this.inputData.length; ++i) {
-      output[this.inputData[i].trip] = this.inputData[i][row];
-    }
-    return output;
   }
 
   extractTrips(val) {
@@ -107,8 +87,7 @@ export class TripsComponent implements OnInit {
   }
 
   checkForBrace(data) {
-    // console.log(data);​
-    return data;
+    return this.mvpdashboardService.getNegPosValue(data);
   }
 
 }
