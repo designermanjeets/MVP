@@ -70,12 +70,17 @@ export class PieComponent extends ChartComponent {
         }
       ],
       tooltip: {
+        headerFormat: '',
         backgroundColor: '#FFFFFF',
         borderWidth: 2,
         shadow: true,
         useHTML: true,
+        pointFormat: `
+          <div>{point.name}: <b>{point.percentage:.1f} %</b></div>
+        `,
         style: {
-            padding: '0'
+            padding: '0',
+            fontSize: '17px'
         }
       }
     }
