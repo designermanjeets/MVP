@@ -27,6 +27,18 @@ export class MvpdashboardService {
     catchError(this.handleError) // then handle the error
   )};
 
+  getFleetInsights() {
+    return this.http.get<any>(`${environment.apiUrl}/fleetinsights`)
+    .pipe(map(res => res),
+    catchError(this.handleError) // then handle the error
+  )};
+
+  getFleetModes() {
+    return this.http.get<any>(`${environment.apiUrl}/fleetmodes`)
+    .pipe(map(res => res),
+    catchError(this.handleError) // then handle the error
+  )};
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

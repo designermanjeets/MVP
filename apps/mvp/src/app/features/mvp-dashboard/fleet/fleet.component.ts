@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { fleetModes, fleetInsights, colorScheme } from './../_models/fleet.models';
@@ -34,21 +34,26 @@ export class FleetComponent implements OnInit {
   enTable: string;
 
   constructor(
-    private mvpdashboardService: MvpdashboardService
+    private mvpdashboardService: MvpdashboardService,
+    private cdr: ChangeDetectorRef
+
   ) { }
 
   ngOnInit(): void {
-    this.getInitData(); // Load Stub Data
+    this.getInitData(); // Load Stub Datas
+    // this.getInsights(); // From Service
+    // this.getModes(); // From Service
   }
 
-  getInitData() { 
+  getInitData() {
     this.commutePieResult = this.convertFleetModes();
+
     this.chartData = this.extractTrips(this.fleetInsightsArr);
     this.enTable = Object.keys(fleetInsights)[0]; // Translator
-  
+
     this.fleetGridData = new MatTableDataSource(this.gridData);
     this.fleetGridData.sort = this.sort;
-  
+
     this.displayColumns = Object.keys(this.gridData[0]);
     this.displayColumns.forEach((element, i) => {
       if( element === 'trip' ) {
@@ -56,8 +61,26 @@ export class FleetComponent implements OnInit {
         this.displayColumns.unshift('trip');
       }
     });
-    
+
     this.desnityDataSource = this.desData;
+  }
+
+  getInsights() {
+    this.mvpdashboardService.getFleetInsights().subscribe(val => {
+      this.fleetInsightsArr = val['Fleet insights'];
+      this.getInitData();
+      this.cdr.detectChanges();
+    });
+  }
+
+  getModes() {
+    this.mvpdashboardService.getFleetModes().subscribe(val => {
+      if(val) {
+        this.fleetModesArr = val['Modes'];
+        this.commutePieResult = this.convertFleetModes();
+        this.cdr.detectChanges();
+      }
+    });
   }
 
   convertFleetModes() {
@@ -107,10 +130,6 @@ export class FleetComponent implements OnInit {
       }
     });
     return temp;
-  }
-
-  checkForBrace(data) {
-    return this.mvpdashboardService.getNegPosValue(data);
   }
 
 }

@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { ChartComponent } from './../../../../shared/components/chart/chart.component';
 import { chartColors } from './../../_models/trip.model';
 
-import { Chart } from 'highcharts/highcharts.src';
 import * as Highcharts from 'highcharts/highcharts.src';
 import highcharts3D from 'highcharts/highcharts-3d.src';
 highcharts3D(Highcharts);

@@ -1,0 +1,14 @@
+::ng-deep .tripGrid tbody tr td:first-of-type {
+    text-align: left;
+    span {
+        margin-top: 10px;
+        display: block;
+    }
+    mat-icon {
+        margin-top: 0px;
+        vertical-align: top;
+        font-size: 14px;
+        margin-right: 0;
+        width: 15px;
+    }
+}

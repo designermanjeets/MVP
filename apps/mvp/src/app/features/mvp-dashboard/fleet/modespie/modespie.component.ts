@@ -15,12 +15,13 @@ highcharts3D(Highcharts);
 export class ModespieComponent extends ChartComponent {
 
   highcharts = Highcharts;
+  localOptions: Highcharts.Options = {};
 
-  @Input() commutePieResult: any;
+  @Input() commutePieResult: any[];
 
   onChartLoad = () => {
-  
-    const localOptions: Highcharts.Options = {
+
+    this.localOptions = {
       chart: {
         type: 'pie',
         options3d: {
@@ -88,8 +89,8 @@ export class ModespieComponent extends ChartComponent {
       },
     };
 
-    this.chartComponent.updateChart(this.highcharts, localOptions);
-  
+    this.chartComponent.updateChart(this.highcharts, this.localOptions);
+
   }
 
   private _callback(chart) {

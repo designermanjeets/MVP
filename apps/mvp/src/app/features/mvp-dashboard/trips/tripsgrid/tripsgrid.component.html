@@ -1,0 +1,33 @@
+<section fxLayout="row">
+    <table mat-table [dataSource]="tripGridData" matSort class="mat-elevation-z8 text-center tripGrid" fxFlex="100">
+        <ng-container 
+            [matColumnDef]="column" 
+            *ngFor="let column of displayColumns; index as i; first as isFirst">
+            <th mat-header-cell *matHeaderCellDef
+            class="text-center">
+                <span translate> {{enTable}}.{{ column }}</span>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <span *ngIf="isFirst; else nontranslate" translate>
+                <mat-icon
+                    [ngClass]="{
+                        'color-lime': element[column] === 'lime',
+                        'color-bird': element[column] === 'bird',
+                        'color-members': element[column] === 'members',
+                        'color-casual': element[column] === 'casual'
+                    }"
+                    class="material-icons">
+                    fiber_manual_record
+                </mat-icon>
+                    {{enTable}}.{{ element[column] }}
+                </span>
+                <ng-template #nontranslate>
+                    <span [innerHTML]="checkForBrace(element[column])"></span>
+                </ng-template>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+    </table>
+</section>

@@ -86,8 +86,4 @@ export class TripsComponent implements OnInit {
     return temp;
   }
 
-  checkForBrace(data) {
-    return this.mvpdashboardService.getNegPosValue(data);
-  }
-
 }

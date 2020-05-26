@@ -1,15 +1,15 @@
 export const fleetModes = {
     "Modes": [{
-            modeName: 'E-Bike',
-            percentage: '31',
-        },
+            modeName: "E-Bike",
+            percentage: "31",
+            },
+            {
+                modeName: "BIKES",
+                percentage: "31",
+            },
         {
-            modeName: 'BIKES',
-            percentage: '31',
-        },
-        {
-            modeName: 'SCOOTERS',
-            percentage: '93',
+            modeName: "SCOOTERS",
+            percentage: "93",
         }
     ]
 };
@@ -120,22 +120,22 @@ export const fleetInsights = {
                   }  
               },
               {
-                'HOPR CASUAL': 
+                "HOPR CASUAL": 
                   {
-                      "WellParked": '75%',
-                      "Equity" : '935,000',
-                      "Co2Footprint": '935,500',
+                      "WellParked": "75%",
+                      "Equity" : "935,000",
+                      "Co2Footprint": "935,500",
                       "Maintenence" : {
-                          "date": 'dateTime',
-                          "count": '50'
+                          "date": "dateTime",
+                          "count": "50"
                       },
                       "Vehicledensity": {
-                          "min": 'SURREY',
-                          "max": 'DOWNTOWN'
+                          "min": "SURREY",
+                          "max": "DOWNTOWN"
                       },
                       "VehicleActivity": {
-                          "min": 'SURREY',
-                          "max": 'DOWNTOWN'
+                          "min": "SURREY",
+                          "max": "DOWNTOWN"
                       },
                       "TotalVehicles": {
                           "count": "600",
@@ -152,7 +152,7 @@ export const fleetInsights = {
                         "11 PM": "1100"
                       }]
                      }
-                  }  
+                  }
               }
           ]
         }

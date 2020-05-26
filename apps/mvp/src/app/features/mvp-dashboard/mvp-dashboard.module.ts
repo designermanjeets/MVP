@@ -13,6 +13,12 @@ import { PieComponent } from './trip-purposes/pie/pie.component';
 import { TripChartComponent } from './trips/trip-chart/tripchart.component';
 import { ModespieComponent } from './fleet/modespie/modespie.component';
 import { UtilzichartComponent } from './fleet/utilzichart/utilzichart.component';
+import { MaintenanceComponent } from './fleet/maintenance/maintenance.component';
+import { DensitygridComponent } from './fleet/densitygrid/densitygrid.component';
+import { FleetcirclesComponent } from './fleet/fleetcircles/fleetcircles.component';
+import { FleetgridComponent } from './fleet/fleetgrid/fleetgrid.component';
+import { TripurposesgridComponent } from './trip-purposes/tripurposesgrid/tripurposesgrid.component';
+import { TripsgridComponent } from './trips/tripsgrid/tripsgrid.component';
 
 const routes: Routes = [
   {
@@ -31,7 +37,13 @@ const routes: Routes = [
     PieComponent,
     TripChartComponent,
     ModespieComponent,
-    UtilzichartComponent
+    UtilzichartComponent,
+    MaintenanceComponent,
+    DensitygridComponent,
+    FleetcirclesComponent,
+    FleetgridComponent,
+    TripurposesgridComponent,
+    TripsgridComponent
   ],
   imports: [
     CommonModule,

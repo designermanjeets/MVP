@@ -1,0 +1,18 @@
+<section fxLayout="row" fxLayoutAlign="start start" class="fleetmode">
+    <section fxFlex *ngFor="let item of fleetInsightsArr; last as isLast" [hidden]="isLast">
+        <ng-container>
+            <ng-container *ngFor="let op of item | keyvalue">
+                <h2 class="grayblue-color" [marginBottom]="0">{{op.value.TotalVehicles.count}}
+                    <span 
+                        [ngClass]="op.key ==='LIME' ? 'color-green': op.key ==='HOPR MEMBERS' ? 'color-blue': 'color-seablue'">
+                        ({{op.value.TotalVehicles.capped}})
+                    </span>
+                </h2>
+                <h4 [marginTop]="5" class="grayblue-color">{{op.key}}</h4>
+                <p [marginBottom]="4">{{op.value.TotalVehicles.available}} are available</p>
+                <p [marginTop]="0">{{op.value.TotalVehicles.outOfService}} are out of service</p>
+                <span class="botborder" [ngClass]="op.key ==='LIME' ? 'bg-green': op.key ==='HOPR MEMBERS' ? 'bg-blue': 'bg-seablue'"></span>
+            </ng-container>
+        </ng-container>
+    </section>
+</section>

@@ -7,46 +7,17 @@
     <!-- Chart -->
     <section fxLayout="row wrap" [marginTop]="30" [marginBottom]="30" class="chartwrap pos-rel">
         <div fxFlex="65">
-            <workspace-tripchart *ngIf="chartData" [chartData]="chartData"></workspace-tripchart>
+            <workspace-tripchart 
+                *ngIf="chartData" 
+                [chartData]="chartData"
+            ></workspace-tripchart>
         </div>
         <h3 fxFlex class="totaltrips grayblue-color" [marginTop]="50">4861<span>Total Trips</span></h3>
     </section>
     <!-- Table -->
-    <section fxLayout="row">
-        <table mat-table [dataSource]="tripGridData" matSort class="mat-elevation-z8 text-center tripGrid" fxFlex="100">
-            <ng-container 
-                [matColumnDef]="column" 
-                *ngFor="let column of displayColumns; index as i; first as isFirst">
-                <th mat-header-cell *matHeaderCellDef
-                class="text-center">
-                    <span translate> {{enTable}}.{{ column }}</span>
-                </th>
-                <td mat-cell *matCellDef="let element">
-                    <span *ngIf="isFirst; else nontranslate" translate>
-                    <mat-icon
-                        [ngClass]="{
-                            'color-lime': element[column] === 'lime',
-                            'color-bird': element[column] === 'bird',
-                            'color-members': element[column] === 'members',
-                            'color-casual': element[column] === 'casual'
-                        }"
-                        class="material-icons">
-                        fiber_manual_record
-                    </mat-icon>
-                        {{enTable}}.{{ element[column] }}
-                    </span>
-                    <ng-template #nontranslate>
-                        <span [innerHTML]="checkForBrace(element[column])"></span>
-                    </ng-template>
-                </td>
-            </ng-container>
-            <!-- HOPR Column -->
-            <!-- <ng-container matColumnDef="hopr">
-                <th mat-header-cell *matHeaderCellDef colspan="2" class="colhopr"> HOPR </th>
-            </ng-container> -->
-            <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
-            <!-- <tr mat-header-row *matHeaderRowDef="['hopr']"></tr> -->
-            <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
-        </table>
-    </section>
+    <workspace-tripsgrid
+        [tripGridData]="tripGridData"
+        [displayColumns]="displayColumns"
+        [enTable]="enTable"
+    ></workspace-tripsgrid>
 </mat-card>
