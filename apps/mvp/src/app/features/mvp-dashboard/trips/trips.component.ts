@@ -4,8 +4,6 @@ import { colorScheme, tripData } from './../_models/trip.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import * as moment from 'moment'
-import * as _ from 'lodash';
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'workspace-trips',
@@ -19,7 +17,7 @@ export class TripsComponent implements OnInit {
   chartData: any[];
   // Grid Trip
   gridData: any;
-  tripGridData: any;
+  tripGridData: MatTableDataSource<any>;
   displayColumns: string[];
   enTable: string;
 
@@ -37,7 +35,7 @@ export class TripsComponent implements OnInit {
 
   getInitData(val) {
     this.chartData = this.extractTrips(val);
-    this.tripGridData = this.gridData; // Table Data
+    this.tripGridData = new MatTableDataSource(this.gridData); // Table Data
 
     this.displayColumns = Object.keys(this.gridData[0]);
     this.tripGridData.sort = this.sort;

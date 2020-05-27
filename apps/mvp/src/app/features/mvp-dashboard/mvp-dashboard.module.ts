@@ -19,6 +19,8 @@ import { FleetcirclesComponent } from './fleet/fleetcircles/fleetcircles.compone
 import { FleetgridComponent } from './fleet/fleetgrid/fleetgrid.component';
 import { TripurposesgridComponent } from './trip-purposes/tripurposesgrid/tripurposesgrid.component';
 import { TripsgridComponent } from './trips/tripsgrid/tripsgrid.component';
+import { ViolationsComponent } from './violations/violations.component';
+import { PolicypieComponent } from './violations/policypie/policypie.component';
 
 const routes: Routes = [
   {
@@ -43,7 +45,9 @@ const routes: Routes = [
     FleetcirclesComponent,
     FleetgridComponent,
     TripurposesgridComponent,
-    TripsgridComponent
+    TripsgridComponent,
+    ViolationsComponent,
+    PolicypieComponent
   ],
   imports: [
     CommonModule,

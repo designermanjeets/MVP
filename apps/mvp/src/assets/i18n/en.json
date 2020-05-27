@@ -24,5 +24,15 @@
         "hopr members": "Members",
         "hopr casual": "Casual",
         "trip": "Trip"
+    },
+    "Violations": {
+        "LicenseSuspension": "License Suspension",
+        "OperatorName": "Operator Name",
+        "Area": "Area",
+        "Category": "Category",
+        "WhatHappened": "What Happened",
+        "When": "When",
+        "Resolution": "Resolution",
+        "STATUS": "Status"
     }
 }

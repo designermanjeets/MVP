@@ -1,12 +1,13 @@
 export const fleetModes = {
-    "Modes": [{
+    "Modes": [
+        {
             modeName: "E-Bike",
             percentage: "31",
-            },
-            {
-                modeName: "BIKES",
-                percentage: "31",
-            },
+        },
+        {
+            modeName: "BIKES",
+            percentage: "31",
+        },
         {
             modeName: "SCOOTERS",
             percentage: "93",

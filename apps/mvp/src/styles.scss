@@ -67,6 +67,10 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .color-bird { color: #E44D25; }
 .color-members { color: #CFC0BB; }
 .color-casual { color: #7aa3e5; }
+.bg-lime { background-color: #5AA454; }
+.bg-bird { background-color: #E44D25; }
+.bg-members { background-color: #CFC0BB; }
+.bg-casual { background-color: #7aa3e5; }
 
 
 
@@ -91,3 +95,19 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .text-center { text-align: center !important; }
 .zeroCol { font-size: 0 !important; }
 h4, h2, h3 { font-weight: 500; }
+.fl-l { float: left; }
+.fl-r { float: right; }
+.mat-flat-button.mat-primary.btn-green,
+.mat-raised-button.mat-primary.btn-green,
+.mat-fab.mat-primary.btn-green,
+.mat-mini-fab.mat-primary.btn-green {
+    background-color: #22b14c;
+}
+.mat-flat-button.mat-primary.btn-blueoutline,
+.mat-raised-button.mat-primary.btn-blueoutline,
+.mat-fab.mat-primary.btn-blueoutline,
+.mat-mini-fab.mat-primary.btn-blueoutline {
+    background-color: transparent;
+    border: 1px solid #0d47a1;
+    color: #0d47a1;
+}
