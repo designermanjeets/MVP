@@ -14,6 +14,8 @@ import { MvpNavbarComponent } from './core/mvp-navbar/mvp-navbar.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { MvpSharedModule } from './shared/shared.module';
 
+import { MdePopoverModule } from '@material-extended/mde';
+
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -39,7 +41,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     FlexLayoutModule,
     MVPRoutingModule,
     NgxUiLoaderModule,
-    MvpSharedModule
+    MvpSharedModule,
+    MdePopoverModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

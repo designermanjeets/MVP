@@ -8,6 +8,7 @@ import { MvpMaterialModule } from './mvp-material/mvp-material.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { HighchartsModule } from './highcharts.module';
 import { ChartComponent } from './components/chart/chart.component';
+import { MdePopoverModule } from '@material-extended/mde';
 
 
 const components = [
@@ -30,12 +31,14 @@ const components = [
     CommonModule,
     MvpMaterialModule,
     TranslateModule,
-    HighchartsModule
+    HighchartsModule,
+    MdePopoverModule
   ],
   exports: [
     ...components,
     MvpMaterialModule,
-    TranslateModule
+    TranslateModule,
+    MdePopoverModule
   ]
 })
 

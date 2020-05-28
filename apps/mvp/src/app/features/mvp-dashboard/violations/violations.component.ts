@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { VIOLATIONS } from './../_models/violations.models';
+import { VIOLATIONS, TEMP } from './../_models/violations.models';
 
 @Component({
   selector: 'workspace-violations',
@@ -14,6 +15,7 @@ export class ViolationsComponent implements OnInit {
 
   licenseArr: any[];
   policyArr: any[];
+  policyOrigArr: any[];
   voilationArr: any[];
 
   limePolicyPieRes: any[];
@@ -21,10 +23,13 @@ export class ViolationsComponent implements OnInit {
   displayedColumns: any[] = ['OperatorName', 'Area', 'Category', 'WhatHappened', 'When', 'Resolution', 'STATUS'];
   violationDataSource: MatTableDataSource<any>;
 
+  today= Date.now();
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   constructor(
     private cdr: ChangeDetectorRef
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     this.getPolicyDis();
@@ -37,6 +42,7 @@ export class ViolationsComponent implements OnInit {
 
     this.policyArr = [];
     this.voilationArr = [];
+    this.policyOrigArr = [];
 
     VIOLATIONS.Violations.Operator.forEach((ele, i) => {
 
@@ -54,12 +60,14 @@ export class ViolationsComponent implements OnInit {
           pol[0]['data'].push({'name': elem.Name, 'y': elem.Percentage});
         });
         this.policyArr.push(pol);
+        this.policyOrigArr.push({'name': ele.OperatorName, 'policies': ele.PolicyDistribution});
       }
 
     });
+    console.log(this.policyOrigArr);  
 
     this.violationDataSource = new MatTableDataSource(this.voilationArr);
-
+    this.violationDataSource.paginator = this.paginator;
     this.cdr.detectChanges();
 
   }

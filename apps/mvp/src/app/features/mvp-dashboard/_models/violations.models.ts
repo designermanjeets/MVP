@@ -103,6 +103,12 @@ export const VIOLATIONS = {
                             "Description": "Operator failed to comply with polic1....\nOperator failed to comply with rebalancing...",
                             "DateTime": "DateTimeStamp",
                             "IsEscalated": 1
+                        },
+                        {
+                            "Subject": "Reason for suspension",
+                            "Description": "Operator failed to comply with polic1....\nOperator failed to comply with rebalancing...",
+                            "DateTime": "DateTimeStamp",
+                            "IsEscalated": 1
                         }
                     ], // RelatedInsight ends
                 }, // LicenseSuspension ends
@@ -129,6 +135,11 @@ export const VIOLATIONS = {
                         "Percentage": 30
                     }
                 ],
+                "LiasonDetails": {
+                    "Name": "BIRD SUPPORT",
+                    "Call": "18001-....",
+                    "Email": "VancouverSupport@li.me"
+                },
                 "PolicyViolations": [
                     {
                         "Area": "DOWNTOWN",
@@ -156,12 +167,6 @@ export const VIOLATIONS = {
                             "Description": "Operator over deployment detected....",
                             "DateTime": "DateTimeStamp",
                             "IsEscalated": 0 // if 0 show Escalate button, else if 1 dont show Escalate button
-                        },
-                        {
-                            "Subject": "Reason for suspension",
-                            "Description": "Operator failed to comply with polic1....\nOperator failed to comply with rebalancing...",
-                            "DateTime": "DateTimeStamp",
-                            "IsEscalated": 1
                         }
                     ], // RelatedInsight ends
                 }, // LicenseSuspension ends
@@ -194,8 +199,169 @@ export const VIOLATIONS = {
                         "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
                         "Percentage": 50
                     }
-                ]
+                ],
+                "LiasonDetails": {
+                    "Name": "HOPR SUPPORT",
+                    "Call": "18002-....",
+                    "Email": "VancouverSupport@li.me"
+                }
             }
         ]
     }
 }
+
+export const TEMP = [
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    },
+    {
+        OperatorName: "LIME",
+        Area: "SURREY",
+        Category: "POLICY",
+        Resolution: "....",
+        STATUS: "ACTIVE",
+        WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
+        When: "DateTimeStamp"
+    }
+]

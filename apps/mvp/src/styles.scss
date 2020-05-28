@@ -2,6 +2,7 @@
 @import './mvp-theme.scss';
 // @import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600&display=swap');
 @import url('../src/assets/fonts/baloo/baloo.css');
+@import url('../src/assets/fonts/material/material-icons.css');
 
 html, body, .fullHeight { height: 100%; background-color: #e5eef4; }
 .primaryBG { background-color: #143055; }
@@ -58,6 +59,23 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 
 .calWithNoInput {
     width:1px; visibility:hidden;
+}
+
+.insights-card { 
+    h2 { font-size: 16px; display: block; margin-bottom: 0; display: inline-block; margin-top: 8px; }
+    p { margin-top: 10px; margin-bottom: 5px; }
+    .dtime { vertical-align: top; margin-top: 11px; }
+}
+
+.small-btn {
+    line-height: 26px;
+    padding: 0 10px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.mde-popover-content {
+    max-width: 500px;
+    min-width: 350px;
 }
 
 
