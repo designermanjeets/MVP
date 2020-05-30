@@ -3,252 +3,32 @@
         Violations
         <mat-icon class="material-icons grayblue-color">notifications</mat-icon>
     </h3>
+
     <!-- License Suspensions -->
-    <section class="licenseSus" fxLayout="row wrap" fxLayoutAlign="start start">
-        <ng-container *ngFor="let item of licenseArr | keyvalue; index as i">
-            <ng-container *ngFor="let it of item.value | keyvalue" >
-                <div *ngIf="it.key === 'LicenseSuspension'" fxFlex="33" class="text-center rightborder">
-                    <h3 [marginBottom]="10" translate>{{enTable}}.{{it.key}}</h3>
-                    <h4 [marginTop]="0" [marginBottom]="0">Category:
-                        <span [ngClass]="{'color-blue': it.value.Category ==='TEMPORARY'}">{{it.value.Category}}</span>
-                    </h4>
-                    <h2
-                        [mdePopoverTriggerFor]="licensePopover"
-                        mdePopoverTriggerOn="click"
-                        class="pointer"
-                        [ngClass]="{
-                            'color-lime': item.value.OperatorName.toLowerCase() === 'lime',
-                            'color-bird': item.value.OperatorName.toLowerCase() === 'bird',
-                            'color-casual': item.value.OperatorName.toLowerCase() === 'hopr'
-                        }">{{item.value.OperatorName}}
-                        <span class="material-icons">info</span>
-                    </h2>
-                    <p>{{it.value.DaysLeft}} of {{it.value.TotalDays}} left</p>
-                    <span class="botborder"
-                        [ngClass]="{
-                            'bg-lime': item.value.OperatorName.toLowerCase() === 'lime',
-                            'bg-bird': item.value.OperatorName.toLowerCase() === 'bird',
-                            'bg-casual': item.value.OperatorName.toLowerCase() === 'hopr'
-                        }"
-                    ></span>
-                </div>
-
-                <!-- Operator Related Insights -->
-                <mde-popover #licensePopover="mdePopover"
-                    [mdePopoverOverlapTrigger]="false"
-                    [mdePopoverCloseOnClick]="true"
-                    [mdePopoverOffsetX]="-16"
-                    [mdePopoverOffsetY]="-10"
-                    [mdePopoverArrowOffsetX]="58"
-                    mdePopoverArrowColor="#FFFFFF"
-                >
-                    <mat-card class="insights-card mat-elevation-z8">
-                        <mat-card-content>
-                            <h3 [marginBottom]="10">Related insights</h3>
-                            <div *ngFor="let item of it.value.RelatedInsight">
-                                <mat-divider></mat-divider>
-                                <h2>{{item.Subject}}</h2>
-                                <p>{{item.Description}}</p>
-                                <div fxLayout="row" fxLayoutAlign="space-between start" [marginBottom]="10">
-                                    <span *ngIf="item.DateTime" class="dtime">
-                                        {{today | date }}
-                                    </span>
-                                    <span *ngIf="item.IsEscalated === 0;">
-                                        <button
-                                            mat-raised-button
-                                            mat-button
-                                            color="primary"
-                                            class="text-uppercase small-btn btn-green"
-                                        >Escalate</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
-                </mde-popover>
-                <!-- ./Operator Related Insights -->
-            </ng-container>
-        </ng-container>
-    </section>
+    <workspace-licensesuspension
+        [licenseArr]="licenseArr"
+        [enTable]="enTable"
+    ></workspace-licensesuspension>
     <!-- ./License Suspensions -->
+
     <!-- Policy -->
-    <section class="policyWrap text-center" fxLayout="row wrap" fxLayoutAlign="start center" [marginTop]="10">
-        <ng-container *ngFor="let item of policyArr | keyvalue; first as isFirst">
-            <ng-container *ngFor="let it of item.value | keyvalue">
-                <ng-container *ngFor="let p of it.value.data">
-                    <h2
-                        fxFlex
-                        *ngIf="isFirst"
-                    >
-                        <span class="clrcode" [ngClass]="{
-                                'bg-lime': p.name === 'Policy1',
-                                'bg-bird': p.name === 'Policy2',
-                                'bg-members': p.name === 'Policy3',
-                                'bg-casual': p.name === 'Policy4'
-                            }"
-                        ></span>
-                        {{p.name}}
-                    </h2>
-                </ng-container>
-                <span *ngIf="isFirst" fxFlex="100"><!--For Line Break--></span>
-                <section
-                    fxFlex
-                    class="pointer policypie"
-                >
-                    <workspace-policypie
-                        *ngIf="it.value.data"
-                        [limePolicyPieRes]="it.value.data"
-                    ></workspace-policypie>
-
-                    <!-- Policy Related Insights -->
-                    <mde-popover #policyPopover="mdePopover"
-                        [mdePopoverOverlapTrigger]="false"
-                        [mdePopoverCloseOnClick]="true"
-                        [mdePopoverOffsetX]="-16"
-                        [mdePopoverOffsetY]="-10"
-                        [mdePopoverArrowOffsetX]="58"
-                        mdePopoverArrowColor="#FFFFFF"
-                    >
-                        <mat-card class="insights-card mat-elevation-z8">
-                            <mat-card-content>
-                                <h3 [marginBottom]="10">Related insights</h3>
-                                <ng-container *ngFor="let el of policyOrigArr">
-                                    <ng-container *ngIf="item.value[0].name === el.name">
-                                        <ng-container *ngFor="let pl of el.policies">
-                                            <mat-divider></mat-divider>
-                                            <h2>{{pl.Name}}</h2>
-                                            <p>{{pl.Description}}</p>
-                                            <div fxLayout="row" fxLayoutAlign="space-between start" [marginBottom]="10">
-                                                <span *ngIf="pl.ViolationsDate" class="dtime">
-                                                    Violated on: {{today | date }}
-                                                </span>
-                                                <span *ngIf="pl.IsEscalated === 0">
-                                                    <button
-                                                        mat-raised-button
-                                                        mat-button
-                                                        color="primary"
-                                                        class="text-uppercase small-btn btn-green"
-                                                    >Escalate</button>
-                                                </span>
-                                            </div>
-                                        </ng-container>
-                                    </ng-container>
-                                </ng-container>
-                            </mat-card-content>
-                        </mat-card>
-                    </mde-popover>
-                    <!-- ./Policy Related Insights -->
-
-                    <h2
-                        class="policyhead">
-                        {{it.value.name}}
-                        <span
-                            class="material-icons"
-                            [mdePopoverTriggerFor]="policyPopover"
-                            mdePopoverTriggerOn="hover"
-                        >info</span>
-                    </h2>
-                    <button
-                        mat-button
-                        mat-raised-button color="primary"
-                        class="btn-blueoutline"
-                        [mdePopoverTriggerFor]="liasonPopover"
-                        mdePopoverTriggerOn="hover"
-                    >LIASON DETAILS</button>
-
-                    <!-- Liason Support -->
-                    <mde-popover #liasonPopover="mdePopover"
-                        [mdePopoverOverlapTrigger]="false"
-                        [mdePopoverCloseOnClick]="true"
-                        [mdePopoverOffsetX]="-16"
-                        [mdePopoverOffsetY]="-10"
-                        [mdePopoverArrowOffsetX]="58"
-                        mdePopoverArrowColor="#FFFFFF"
-                    >
-                        <mat-card class="insights-card mat-elevation-z8">
-                            <mat-card-content>
-                                <h3 [marginBottom]="10">{{it.value.name}} Support</h3>
-                                <mat-divider></mat-divider>
-                                <ng-container *ngFor="let op of licenseArr">
-                                    <ng-container
-                                        *ngIf="op.LiasonDetails.Name === 'LIME SUPPORT' && it.value.name === 'LIME'">
-                                        <h4>{{op.LiasonDetails.Call}}</h4>
-                                        <h4 [marginTop]="0">{{op.LiasonDetails.Email}}</h4>
-                                    </ng-container>
-                                    <ng-container
-                                        *ngIf="op.LiasonDetails.Name === 'BIRD SUPPORT' && it.value.name === 'BIRD'">
-                                        <h4>{{op.LiasonDetails.Call}}</h4>
-                                        <h4 [marginTop]="0">{{op.LiasonDetails.Email}}</h4>
-                                    </ng-container>
-                                    <ng-container
-                                        *ngIf="op.LiasonDetails.Name === 'HOPR SUPPORT' && it.value.name === 'HOPR'">
-                                        <h4>{{op.LiasonDetails.Call}}</h4>
-                                        <h4 [marginTop]="0">{{op.LiasonDetails.Email}}</h4>
-                                    </ng-container>
-                                </ng-container>
-                            </mat-card-content>
-                        </mat-card>
-                    </mde-popover>
-                    <!-- ./Liason Support -->
-                </section>
-            </ng-container>
-        </ng-container>
-    </section>
+    <workspace-policydonuts
+        [policyArr]="policyArr"
+        [policyOrigArr]="policyOrigArr"
+        [licenseArr]="licenseArr"
+    >        
+    </workspace-policydonuts>
     <!-- ./Policy -->
-    <!-- Generate Button -->
-    <div fxLayout="row" fxLayoutAlign="end start">
-        <button
-            mat-raised-button
-            mat-button
-            color="primary"
-            [marginTop]="25"
-            class="btn-green"
-        >Generate Escalation Report</button>
-    </div>
-    <!-- ./Generate Button -->
+
     <!-- PolicyViolations -->
-    <section [hidden]="violationDataSource" fxLayout="row wrap" fxLayoutAlign="start start" [marginTop]="25">
-        <table mat-table [dataSource]="violationDataSource" class="mat-elevation-z8 violationGrid" fxFlex="100">
-
-            <!-- Column -->
-            <ng-container
-                [matColumnDef]="column"
-                *ngFor="let column of displayedColumns; index as i; first as isFirst">
-                <th mat-header-cell *matHeaderCellDef
-                class="text-center">
-                    <span translate>{{enTable}}.{{ column }}</span>
-                </th>
-                <td mat-cell *matCellDef="let element">
-                    <span *ngIf="column === 'WhatHappened'; else regularCol">
-                        {{ element[column].Subject }}
-                        <button
-                            *ngIf="element[column].IsEscalated"
-                            mat-button mat-raised-button
-                            color="primary"
-                            class="fl-r"
-                            [marginTop]="5"
-                            [marginBottom]="5"
-                            >Escalate
-                        </button>
-                    </span>
-                    <ng-template #regularCol>
-                        <span *ngIf="column === 'STATUS'; else nonStatus">
-                            <span *ngIf="element[column] === 'ACTIVE'" class="color-bird">{{element[column]}}</span>
-                            <span *ngIf="element[column] === 'DONE'" class="bg-green done">{{element[column]}}</span>
-                        </span>
-                        <ng-template #nonStatus>
-                            {{ element[column]}}
-                        </ng-template>
-                    </ng-template>
-                </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <div fxFlex="100" fxLayout="row" fxLayoutAlign="end start" [marginTop]="15" [marginBottom]="25">
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-        </div>
-    </section>
+    <workspace-policygrid
+        *ngIf="voilationArr"
+        [voilationArr]="voilationArr"
+        [displayedColumns]="displayedColumns"
+        [paginator]="paginator"
+        [enTable]="enTable"
+    >
+    </workspace-policygrid>
     <!-- ./PolicyViolations -->
+
 </mat-card>

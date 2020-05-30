@@ -21,6 +21,9 @@ import { TripurposesgridComponent } from './trip-purposes/tripurposesgrid/tripur
 import { TripsgridComponent } from './trips/tripsgrid/tripsgrid.component';
 import { ViolationsComponent } from './violations/violations.component';
 import { PolicypieComponent } from './violations/policypie/policypie.component';
+import { LicensesuspensionComponent } from './violations/licensesuspension/licensesuspension.component';
+import { PolicygridComponent } from './violations/policygrid/policygrid.component';
+import { PolicydonutsComponent } from './violations/policydonuts/policydonuts.component';
 
 const routes: Routes = [
   {
@@ -47,7 +50,10 @@ const routes: Routes = [
     TripurposesgridComponent,
     TripsgridComponent,
     ViolationsComponent,
-    PolicypieComponent
+    PolicypieComponent,
+    LicensesuspensionComponent,
+    PolicygridComponent,
+    PolicydonutsComponent
   ],
   imports: [
     CommonModule,

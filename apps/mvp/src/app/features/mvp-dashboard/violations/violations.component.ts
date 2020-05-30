@@ -1,6 +1,4 @@
-import { MatPaginator } from '@angular/material/paginator';
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { VIOLATIONS, TEMP } from './../_models/violations.models';
 
 @Component({
@@ -21,11 +19,8 @@ export class ViolationsComponent implements OnInit {
   limePolicyPieRes: any[];
 
   displayedColumns: any[] = ['OperatorName', 'Area', 'Category', 'WhatHappened', 'When', 'Resolution', 'STATUS'];
-  violationDataSource: MatTableDataSource<any>;
 
   today= Date.now();
-
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
     private cdr: ChangeDetectorRef
@@ -48,7 +43,7 @@ export class ViolationsComponent implements OnInit {
 
       if(ele.PolicyViolations) {
         ele.PolicyViolations.forEach(vio => {
-          this.voilationArr.push({'OperatorName': ele.OperatorName, ...vio});
+          this.voilationArr.push({'OperatorName': ele.OperatorName, ...vio}); // Violation Grid Data
         });
       }
 
@@ -64,10 +59,7 @@ export class ViolationsComponent implements OnInit {
       }
 
     });
-    console.log(this.policyOrigArr);  
 
-    this.violationDataSource = new MatTableDataSource(this.voilationArr);
-    this.violationDataSource.paginator = this.paginator;
     this.cdr.detectChanges();
 
   }
