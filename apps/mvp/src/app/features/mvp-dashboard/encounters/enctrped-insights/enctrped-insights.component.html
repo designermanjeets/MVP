@@ -1,0 +1,81 @@
+<section *ngFor="let item of encounters | keyvalue" class="ridersInsights" fxLayout="column" fxLayoutGap="20px">
+    <div *ngIf="item.value.MostRiderGenerators" fxFlex="100" fxLayout="row" fxLayoutAlign="start start">
+        <div fxFlex="200px">
+            Most Riders Generators:
+            <mat-icon 
+                class="material-icons riderInfo pointer"
+                [mdePopoverTriggerFor]="generatorsPopover"
+                mdePopoverTriggerOn="hover"
+                >info</mat-icon>
+        </div>
+        <div fxFlex>
+            <span *ngFor="let it of item.value.MostRiderGenerators.Locations">
+                <mat-icon class="material-icons color-green locationio">location_on</mat-icon>{{it}}
+            </span>
+        </div>
+    </div>
+    <div *ngIf="item.value.MostRiderAttractors" fxFlex="100" fxLayout="row" fxLayoutAlign="start start">
+        <div fxFlex="200px">
+            Most Riders Attractors:
+            <mat-icon
+                class="material-icons riderInfo pointer"
+                [mdePopoverTriggerFor]="attractorsPopover"
+                mdePopoverTriggerOn="hover"
+            >info</mat-icon>
+        </div>
+        <div fxFlex>
+            <span *ngFor="let it of item.value.MostRiderAttractors.Locations">
+                <mat-icon class="material-icons color-green locationio">location_on</mat-icon>{{it}}
+            </span>
+        </div>
+    </div>
+
+    <!-- generatorsPopover Related Insights -->
+    <mde-popover 
+        #generatorsPopover="mdePopover"
+        [mdePopoverOverlapTrigger]="false"
+        mdePopoverArrowColor="#FFFFFF"
+    >
+        <mat-card class="insights-card mat-elevation-z8">
+            <mat-card-content>
+                <h3 [marginBottom]="10">
+                    <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
+                    Related insights
+                </h3>
+                <div class="insightsPop">
+                    <mat-divider></mat-divider>
+                    <p>
+                        <span><b>Generators</b></span>
+                        {{item.value?.MostRiderGenerators?.RelatedInsights.Description}}
+                    </p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mde-popover>
+    <!-- ./generatorsPopover Related Insights -->
+
+    <!-- MostRiderAttractors Related Insights -->
+    <mde-popover 
+        #attractorsPopover="mdePopover"
+        [mdePopoverOverlapTrigger]="false"
+        mdePopoverArrowColor="#FFFFFF"
+    >
+    <mat-card class="insights-card mat-elevation-z8">
+        <mat-card-content>
+            <h3 [marginBottom]="10">
+                <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
+                Related insights
+            </h3>
+            <div class="insightsPop">
+                <mat-divider></mat-divider>
+                <p>
+                    <span><b>Attractors</b></span>
+                    {{item.value?.MostRiderAttractors?.RelatedInsights.Description}}
+                </p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</mde-popover>
+<!-- ./MostRiderAttractors Related Insights -->
+
+</section>

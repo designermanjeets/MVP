@@ -35,6 +35,7 @@ export class TripsComponent implements OnInit {
 
   getInitData(val) {
     this.chartData = this.extractTrips(val);
+    console.log(this.chartData);
     this.tripGridData = new MatTableDataSource(this.gridData); // Table Data
 
     this.displayColumns = Object.keys(this.gridData[0]);

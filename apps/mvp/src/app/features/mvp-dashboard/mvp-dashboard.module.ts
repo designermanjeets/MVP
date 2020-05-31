@@ -24,6 +24,11 @@ import { PolicypieComponent } from './violations/policypie/policypie.component';
 import { LicensesuspensionComponent } from './violations/licensesuspension/licensesuspension.component';
 import { PolicygridComponent } from './violations/policygrid/policygrid.component';
 import { PolicydonutsComponent } from './violations/policydonuts/policydonuts.component';
+import { EncountersComponent } from './encounters/encounters.component';
+import { EncounterChartComponent } from './encounters/encounter-chart/encounter-chart.component';
+import { EnctrmodespieComponent } from './encounters/enctrmodespie/enctrmodespie.component';
+import { EnctrpedgridComponent } from './encounters/enctrpedgrid/enctrpedgrid.component';
+import { EnctrpedInsightsComponent } from './encounters/enctrped-insights/enctrped-insights.component';
 
 const routes: Routes = [
   {
@@ -53,7 +58,12 @@ const routes: Routes = [
     PolicypieComponent,
     LicensesuspensionComponent,
     PolicygridComponent,
-    PolicydonutsComponent
+    PolicydonutsComponent,
+    EncountersComponent,
+    EncounterChartComponent,
+    EnctrmodespieComponent,
+    EnctrpedgridComponent,
+    EnctrpedInsightsComponent
   ],
   imports: [
     CommonModule,

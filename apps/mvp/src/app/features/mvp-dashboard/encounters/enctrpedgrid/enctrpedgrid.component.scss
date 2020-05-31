@@ -1,0 +1,18 @@
+::ng-deep .pedInsighGrid {
+    td.mat-cell, .mat-header-cell {
+        position: relative;
+        .mat-icon {
+            position: absolute;
+            top: 14px;
+        }
+        .riderInfo {
+            top: 3px;
+         }
+         .condtionalIcon {
+            font-size: 14px;
+            width: 14px;
+            height: 14px;
+            top: 3px;
+         }
+    }
+}

@@ -1,0 +1,128 @@
+<section fxLayout="row wrap" fxLayoutAlign="start start" [marginTop]="25">
+    <table mat-table [dataSource]="pedInsightDataSource" class="mat-elevation-z8 violationGrid pedInsighGrid" fxFlex="100">
+
+        <!-- Column -->
+        <ng-container
+            [matColumnDef]="column"
+            *ngFor="let column of displayedColumns; index as i; first as isFirst">
+            <th mat-header-cell *matHeaderCellDef
+            class="text-center">
+                <span>
+                    {{ column }}
+                    <mat-icon
+                        *ngIf="column === 'Condition' || column === 'Severity' || column === 'Category' || column === 'Attribute'"
+                        class="material-icons riderInfo pointer"
+                        [mdePopoverTriggerFor]="columnPopover"
+                        mdePopoverTriggerOn="hover"
+                    >info</mat-icon>
+                </span> <!--<span translate>{{enTable}}.{{ column }}</span>-->
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <ng-container [ngSwitch]="column">
+                    <ng-template [ngSwitchCase]="'Operator'">{{element[column]}}</ng-template>
+                    <ng-template [ngSwitchCase]="'Area'">
+                        {{element[column].Subject}}
+                        <mat-icon class="material-icons color-green locationio">location_on</mat-icon>
+                    </ng-template>
+                    <ng-template [ngSwitchCase]="'When'">{{element[column].Subject | date}}</ng-template>
+                    <ng-template [ngSwitchCase]="'Violation'">
+                        <button mat-button mat-raised-button *ngIf="element[column].IsAdded" class="bg-green done">ADD</button>
+                    </ng-template>
+                    <ng-template [ngSwitchCase]="'Condition'">
+                        {{element[column].Subject}}
+                        <mat-icon
+                            class="material-icons condtionalIcon pointer"
+                            [mdePopoverTriggerFor]="conditionPopover"
+                            mdePopoverTriggerOn="hover"
+                            style="right: 10px;"
+                        >info</mat-icon>
+                        
+                        <!-- Condition Related Insights -->
+                        <mde-popover
+                            #conditionPopover="mdePopover"
+                            [mdePopoverOverlapTrigger]="false"
+                            mdePopoverArrowColor="#FFFFFF"
+                        >
+                            <mat-card class="insights-card mat-elevation-z8">
+                                <mat-card-content>
+                                    <h3 [marginBottom]="10">
+                                        <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
+                                        Related insights
+                                    </h3>
+                                    <mat-divider></mat-divider><br>
+                                    {{element[column].RelatedInsight.Description}}
+                                    <p class="text-right">See on Map
+                                        <!-- {{element[column].RelatedInsight.Coordinates}} -->
+                                        <mat-icon class="material-icons color-green locationio pointer">location_on</mat-icon>
+                                    </p>
+                                </mat-card-content>
+                            </mat-card>
+                        </mde-popover>
+                        <!-- ./Condition Related Insights -->
+
+                    </ng-template>
+                    <!--default case when there are no matches -->
+                    <ng-template [ngSwitchDefault]>{{element[column].Subject}}</ng-template>
+                </ng-container>
+
+            </td>
+
+            <!-- Column Related Insights -->
+            <mde-popover
+                #columnPopover="mdePopover"
+                [mdePopoverOverlapTrigger]="false"
+                mdePopoverArrowColor="#FFFFFF"
+            >
+                <mat-card class="insights-card mat-elevation-z8">
+                    <mat-card-content>
+                        <h3 [marginBottom]="10">
+                            <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
+                            Related insights
+                        </h3>
+                        <div class="insightsPop" [ngSwitch]="column">
+                            <mat-divider></mat-divider>
+                            <ng-template [ngSwitchCase]="'Condition'">
+                                <p>
+                                    <span><b>{{column}}:</b></span>
+                                    There are classifications of different type of encounters.<br>
+                                    <b>See individual condition code for details.</b>
+                                </p>
+                            </ng-template>
+                            <ng-template [ngSwitchCase]="'Severity'">
+                                <p>
+                                    <span><b>{{column}}:</b></span>
+                                    The encounters are defined in two main categories based on insights:<br>
+                                    <b>Partial and Complete.</b>
+                                </p>
+                            </ng-template>
+                            <ng-template [ngSwitchCase]="'Category'">
+                                <p>
+                                    <span><b>{{column}}:</b></span>
+                                    Base on the insights, application categorises the encounters into either<br>
+                                    <b>Actual or Anticipated.</b>
+                                </p>
+                            </ng-template>
+                            <ng-template [ngSwitchCase]="'Attribute'">
+                                <p>
+                                    <span><b>{{column}}:</b></span>
+                                    Three types of attributes are:<br>
+                                    <b>SIDEWALK, STREET SIDE and NON-STREET SIDE</b>
+                                </p>
+                            </ng-template>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </mde-popover>
+            <!-- ./Column Related Insights -->
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="end start" [marginTop]="15" [marginBottom]="25">
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+</section>

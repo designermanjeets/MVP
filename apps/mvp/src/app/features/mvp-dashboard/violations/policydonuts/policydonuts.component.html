@@ -30,14 +30,14 @@
                 <mde-popover #policyPopover="mdePopover"
                     [mdePopoverOverlapTrigger]="false"
                     [mdePopoverCloseOnClick]="true"
-                    [mdePopoverOffsetX]="-16"
-                    [mdePopoverOffsetY]="-10"
-                    [mdePopoverArrowOffsetX]="58"
                     mdePopoverArrowColor="#FFFFFF"
                 >
                     <mat-card class="insights-card mat-elevation-z8">
                         <mat-card-content>
-                            <h3 [marginBottom]="10">Related insights</h3>
+                            <h3 [marginBottom]="10">
+                                <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
+                                Related insights
+                            </h3>
                             <ng-container *ngFor="let el of policyOrigArr">
                                 <ng-container *ngIf="item.value[0].name === el.name">
                                     <ng-container *ngFor="let pl of el.policies">
@@ -86,14 +86,14 @@
                 <mde-popover #liasonPopover="mdePopover"
                     [mdePopoverOverlapTrigger]="false"
                     [mdePopoverCloseOnClick]="true"
-                    [mdePopoverOffsetX]="-16"
-                    [mdePopoverOffsetY]="-10"
-                    [mdePopoverArrowOffsetX]="58"
                     mdePopoverArrowColor="#FFFFFF"
                 >
                     <mat-card class="insights-card mat-elevation-z8">
                         <mat-card-content>
-                            <h3 [marginBottom]="10">{{it.value.name}} Support</h3>
+                            <h3 [marginBottom]="10">
+                                <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
+                                {{it.value.name}} Support
+                            </h3>
                             <mat-divider></mat-divider>
                             <ng-container *ngFor="let op of licenseArr">
                                 <ng-container

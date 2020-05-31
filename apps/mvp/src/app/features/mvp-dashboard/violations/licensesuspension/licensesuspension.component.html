@@ -7,15 +7,16 @@
                     <span [ngClass]="{'color-blue': it.value.Category ==='TEMPORARY'}">{{it.value.Category}}</span>
                 </h4>
                 <h2
-                    [mdePopoverTriggerFor]="licensePopover"
-                    mdePopoverTriggerOn="click"
-                    class="pointer"
                     [ngClass]="{
                         'color-lime': item.value.OperatorName.toLowerCase() === 'lime',
                         'color-bird': item.value.OperatorName.toLowerCase() === 'bird',
                         'color-casual': item.value.OperatorName.toLowerCase() === 'hopr'
                     }">{{item.value.OperatorName}}
-                    <span class="material-icons">info</span>
+                    <span
+                        class="material-icons pointer"
+                        [mdePopoverTriggerFor]="licensePopover"
+                        mdePopoverTriggerOn="hover"
+                    >info</span>
                 </h2>
                 <p>{{it.value.DaysLeft}} of {{it.value.TotalDays}} left</p>
                 <span class="botborder"
@@ -31,14 +32,14 @@
             <mde-popover #licensePopover="mdePopover"
                 [mdePopoverOverlapTrigger]="false"
                 [mdePopoverCloseOnClick]="true"
-                [mdePopoverOffsetX]="-16"
-                [mdePopoverOffsetY]="-10"
-                [mdePopoverArrowOffsetX]="58"
                 mdePopoverArrowColor="#FFFFFF"
             >
                 <mat-card class="insights-card mat-elevation-z8">
                     <mat-card-content>
-                        <h3 [marginBottom]="10">Related insights</h3>
+                        <h3 [marginBottom]="10">
+                            <mat-icon class="material-icons color-green">info</mat-icon>
+                            Related insights
+                        </h3>
                         <div *ngFor="let item of it.value.RelatedInsight">
                             <mat-divider></mat-divider>
                             <h2>{{item.Subject}}</h2>

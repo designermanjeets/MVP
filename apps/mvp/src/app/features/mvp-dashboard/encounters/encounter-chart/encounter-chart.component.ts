@@ -7,20 +7,20 @@ import highcharts3D from 'highcharts/highcharts-3d.src';
 highcharts3D(Highcharts);
 
 @Component({
-  selector: 'workspace-tripchart',
-  templateUrl: './tripchart.component.html',
-  styleUrls: ['./tripchart.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  selector: 'workspace-encounter-chart',
+  templateUrl: './encounter-chart.component.html',
+  styleUrls: ['./encounter-chart.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class TripChartComponent extends ChartComponent {
+export class EncounterChartComponent extends ChartComponent {
 
   highcharts = Highcharts;
   localOptions: Highcharts.Options = {};
   private _chartData: any;
 
-  @Input('chartData') 
-  set chartData(value: any) {
+  @Input('enctrChart') 
+  set enctrChart(value: any) {
     if(value && value.length > 0) {
       this._chartData = value;
     }

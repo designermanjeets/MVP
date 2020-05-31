@@ -1,0 +1,43 @@
+<mat-card>
+    <h3 class="text-uppercase" [marginBottom]="0">
+        Encounters
+        <mat-icon class="material-icons grayblue-color">notifications</mat-icon>
+    </h3>
+    <span class="font14">Last updated 5 min ago</span>
+    <section fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+
+        <!-- Encounter Chart -->
+        <workspace-encounter-chart
+            fxFlex="60"
+            *ngIf="enctrChart"
+            [enctrChart]="enctrChart"
+        >
+        </workspace-encounter-chart>
+        <!-- ./Encounter Chart -->
+    
+        <!-- Modes -->
+        <workspace-enctrmodespie
+            fxFlex="35"
+            *ngIf="encntrPieResult"
+            [encntrPieResult]=encntrPieResult
+        ></workspace-enctrmodespie>
+        <!-- ./Modes -->
+
+        <!-- Ped Insights -->
+        <h3 fxFlex="100">Pedestrians Insights</h3>
+        <workspace-enctrped-insights
+            [encounters]="encounters"
+        ></workspace-enctrped-insights>
+        <!-- ./Ped Insights -->
+
+        <!-- Ped Insights Grid -->
+        <workspace-enctrpedgrid
+            *ngIf="pedInsightArr"
+            [pedInsightArr]="pedInsightArr"
+            [displayedColumns]="displayedColumns"
+            [enTable]="enTable"
+        ></workspace-enctrpedgrid>
+    <!-- ./Ped Insights Grid -->
+
+    </section>
+</mat-card>
