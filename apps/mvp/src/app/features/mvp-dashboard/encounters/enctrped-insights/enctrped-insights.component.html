@@ -1,4 +1,4 @@
-<section *ngFor="let item of encounters | keyvalue" class="ridersInsights" fxLayout="column" fxLayoutGap="20px">
+<ng-container *ngFor="let item of encounters | keyvalue">
     <div *ngIf="item.value.MostRiderGenerators" fxFlex="100" fxLayout="row" fxLayoutAlign="start start">
         <div fxFlex="200px">
             Most Riders Generators:
@@ -35,6 +35,7 @@
         #generatorsPopover="mdePopover"
         [mdePopoverOverlapTrigger]="false"
         mdePopoverArrowColor="#FFFFFF"
+        class="popoverClass"
     >
         <mat-card class="insights-card mat-elevation-z8">
             <mat-card-content>
@@ -59,23 +60,24 @@
         #attractorsPopover="mdePopover"
         [mdePopoverOverlapTrigger]="false"
         mdePopoverArrowColor="#FFFFFF"
+        class="popoverClass"
     >
-    <mat-card class="insights-card mat-elevation-z8">
-        <mat-card-content>
-            <h3 [marginBottom]="10">
-                <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
-                Related insights
-            </h3>
-            <div class="insightsPop">
-                <mat-divider></mat-divider>
-                <p>
-                    <span><b>Attractors</b></span>
-                    {{item.value?.MostRiderAttractors?.RelatedInsights.Description}}
-                </p>
-            </div>
-        </mat-card-content>
-    </mat-card>
-</mde-popover>
-<!-- ./MostRiderAttractors Related Insights -->
+        <mat-card class="insights-card mat-elevation-z8">
+            <mat-card-content>
+                <h3 [marginBottom]="10">
+                    <mat-icon class="material-icons color-green vtop" [marginTop]="-2">info</mat-icon>
+                    Related insights
+                </h3>
+                <div class="insightsPop">
+                    <mat-divider></mat-divider>
+                    <p>
+                        <span><b>Attractors</b></span>
+                        {{item.value?.MostRiderAttractors?.RelatedInsights.Description}}
+                    </p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mde-popover>
+    <!-- ./MostRiderAttractors Related Insights -->
 
-</section>
+</ng-container>

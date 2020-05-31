@@ -56,9 +56,8 @@ export class EncounterChartComponent extends ChartComponent {
       }
     };
 
-    this.localOptions.series = this._chartData;
-
-    this.chartComponent.updateChart(this.highcharts, this.localOptions);
+      this.localOptions.series = this._chartData;
+      this.chartComponent.updateChart(this.highcharts, this.localOptions);
   }
 
 }

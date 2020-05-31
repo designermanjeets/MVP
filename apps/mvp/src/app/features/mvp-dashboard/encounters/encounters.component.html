@@ -5,33 +5,36 @@
     </h3>
     <span class="font14">Last updated 5 min ago</span>
     <section fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
-
-        <!-- Encounter Chart -->
-        <workspace-encounter-chart
-            fxFlex="60"
-            *ngIf="enctrChart"
-            [enctrChart]="enctrChart"
-        >
-        </workspace-encounter-chart>
-        <!-- ./Encounter Chart -->
-    
-        <!-- Modes -->
-        <workspace-enctrmodespie
-            fxFlex="35"
-            *ngIf="encntrPieResult"
-            [encntrPieResult]=encntrPieResult
-        ></workspace-enctrmodespie>
-        <!-- ./Modes -->
+        <section fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+            <!-- Encounter Chart -->
+            <div fxFlex="60">
+                <workspace-encounter-chart
+                    *ngIf="enctrChart"
+                    [enctrChart]="enctrChart"
+                >
+                </workspace-encounter-chart>
+            </div>
+            <!-- ./Encounter Chart -->
+        
+            <!-- Modes -->
+            <workspace-enctrmodespie
+                fxFlex="35"
+                *ngIf="encntrPieResult"
+                [encntrPieResult]=encntrPieResult
+            ></workspace-enctrmodespie>
+            <!-- ./Modes -->
+        </section>
 
         <!-- Ped Insights -->
         <h3 fxFlex="100">Pedestrians Insights</h3>
-        <workspace-enctrped-insights
+        <workspace-enctrped-insights fxFlex="100" class="ridersInsights" fxLayout="column" fxLayoutGap="20px"
             [encounters]="encounters"
         ></workspace-enctrped-insights>
         <!-- ./Ped Insights -->
 
         <!-- Ped Insights Grid -->
         <workspace-enctrpedgrid
+            fxFlex="100"
             *ngIf="pedInsightArr"
             [pedInsightArr]="pedInsightArr"
             [displayedColumns]="displayedColumns"
