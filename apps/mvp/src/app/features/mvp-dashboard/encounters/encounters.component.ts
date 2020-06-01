@@ -10,7 +10,7 @@ import { ENCOUNTER } from './../_models/encounter.models';
 
 export class EncountersComponent implements OnInit {
 
-  enctrChart: any[];
+  enctrChart: any[] = [];
   enTable: any;
   encounters:any = ENCOUNTER.Encounters;
   fleetModesArr = ENCOUNTER.Encounters.Modes;
@@ -31,7 +31,6 @@ export class EncountersComponent implements OnInit {
     this.enctrChart = this.extractTrips(this.encounters);  // Getting Encounters Pie Chart Data
     this.encntrPieResult = this.convertEncountersModes();  // Encounters Pie Chart Data Conversion
     this.cdr.detectChanges();
-    console.log(this.pedInsightArr);
   }
 
   extractTrips(val) {
@@ -45,14 +44,14 @@ export class EncountersComponent implements OnInit {
         data.push(Number(ite.Count));
       }
       temp.push({'name': ele.OperatorName, data}); // Encounters Line Chart Data
-
+      
       
       for (const ite of ele.EncounterDetails) {
         this.pedInsightArr.push({'Operator': ele.OperatorName, ...ite}); // Pedestrians Grid Data
       }
 
-
     });
+
     return temp; // Return Encounters Pie Chart Data
   }
 

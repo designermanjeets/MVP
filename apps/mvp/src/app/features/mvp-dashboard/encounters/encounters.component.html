@@ -4,26 +4,27 @@
         <mat-icon class="material-icons grayblue-color">notifications</mat-icon>
     </h3>
     <span class="font14">Last updated 5 min ago</span>
-    <section fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
-        <section fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
-            <!-- Encounter Chart -->
-            <div fxFlex="60">
-                <workspace-encounter-chart
-                    *ngIf="enctrChart"
-                    [enctrChart]="enctrChart"
-                >
-                </workspace-encounter-chart>
-            </div>
-            <!-- ./Encounter Chart -->
+
+    <section fxLayout="row wrap" fxLayoutAlign="start start">
         
-            <!-- Modes -->
-            <workspace-enctrmodespie
-                fxFlex="35"
-                *ngIf="encntrPieResult"
-                [encntrPieResult]=encntrPieResult
-            ></workspace-enctrmodespie>
-            <!-- ./Modes -->
-        </section>
+        <!-- Encounter Chart -->
+        <workspace-encounter-chart
+            *ngIf="enctrChart"
+            [enctrChart]="enctrChart"
+            fxFlex="500px"
+            fxFlex.lg="100"
+        >
+        </workspace-encounter-chart>
+        <!-- ./Encounter Chart -->
+
+        <!-- Modes -->
+        <workspace-enctrmodespie
+            fxFlex="35"
+            fxFlex.lg="100"
+            *ngIf="encntrPieResult"
+            [encntrPieResult]=encntrPieResult
+        ></workspace-enctrmodespie>
+        <!-- ./Modes -->
 
         <!-- Ped Insights -->
         <h3 fxFlex="100">Pedestrians Insights</h3>
