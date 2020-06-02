@@ -21,6 +21,8 @@ export class EnctrmodespieComponent extends ChartComponent {
 
   onChartLoad = () => {
 
+    console.log(this.encntrPieResult);
+
     this.localOptions = {
       chart: {
         type: 'pie',
@@ -56,7 +58,7 @@ export class EnctrmodespieComponent extends ChartComponent {
           },
           pointStart: 500,
           events: {
-            click: this._callback.bind(this)
+            click: this._callback.bind(this),
         },
       }
       },
@@ -73,9 +75,16 @@ export class EnctrmodespieComponent extends ChartComponent {
         borderWidth: 2,
         shadow: true,
         useHTML: true,
+        className: 'myTool',
         pointFormat: `
-          <div>{point.name}: <b>{point.percentage:.1f} %</b></div>
-        `,
+            <div style="font-size:14px;">
+              <h3 style="margin-top:5px; margin-bottom:5px">
+                <mat-icon class="material-icons color-green vtop" [marginTop]="-2" [marginRight]="5">info</mat-icon>
+                Related Insights
+              </h3>
+              <b>{point.percentage:.1f} %</b> of the total encounters were from
+               the {point.name} between ` + `{point.insights.timestamp}` + ` - now.
+            </div>`,
         style: {
             padding: '0',
             fontSize: '17px'
@@ -95,7 +104,16 @@ export class EnctrmodespieComponent extends ChartComponent {
   }
 
   private _callback(chart) {
-    console.log(chart);
+    // console.log(chart);
+  }
+
+  private _getTooltipHTML(point) {
+
+    return `<div>
+            <h3>Related Insights</h3>
+            <b>{point.percentage:.1f} %</b> of the total encounters were from the {point.name}
+            between May 22, 10:30 pm - now.
+          </div>`
   }
 
 }

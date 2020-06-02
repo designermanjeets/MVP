@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ENCOUNTER } from './../_models/encounter.models';
+import * as moment from 'moment';
 
 @Component({
   selector: 'workspace-encounters',
@@ -30,6 +31,7 @@ export class EncountersComponent implements OnInit {
 
     this.enctrChart = this.extractTrips(this.encounters);  // Getting Encounters Pie Chart Data
     this.encntrPieResult = this.convertEncountersModes();  // Encounters Pie Chart Data Conversion
+    console.log(this.encntrPieResult)
     this.cdr.detectChanges();
   }
 
@@ -59,7 +61,10 @@ export class EncountersComponent implements OnInit {
     const pieArr = [];
     this.fleetModesArr.forEach(ele => {
       const per = ele.Value.replace(/\% ?/g, "");
-      pieArr.push({name: ele.Name, y: Number(per)})
+      // const time = moment(ele.RelatedInsights.TimeStamp); // Parse Correct Date
+      const today = Date.now();
+      ele.RelatedInsights['timestamp'] = moment(today).format("MMM Do, h:mm a")
+      pieArr.push({name: ele.Name, y: Number(per), 'insights': ele.RelatedInsights })
     });
     return pieArr;
   }

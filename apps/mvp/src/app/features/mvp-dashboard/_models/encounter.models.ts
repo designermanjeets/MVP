@@ -7,7 +7,8 @@ export const ENCOUNTER = {
                 "Value": "31%",
                 "RelatedInsights": {
                     "Description": "38% of the ....",
-                    "IsEscalated": 1 //dont show the ESCALATE button
+                    "IsEscalated": 1, //dont show the ESCALATE button
+                    "TimeStamp": "1590863383194"
                 }
             },
             {
@@ -15,7 +16,8 @@ export const ENCOUNTER = {
                 "Value": "38%",
                 "RelatedInsights": {
                     "Description": "38% of the ....",
-                    "IsEscalated": 1 //dont show the ESCALATE button
+                    "IsEscalated": 1, //dont show the ESCALATE button
+                    "TimeStamp": "1590863383194"
                 }
             },
             {
@@ -23,7 +25,8 @@ export const ENCOUNTER = {
                 "Value": "16%",
                 "RelatedInsights": {
                     "Description": "38% of the ....",
-                    "IsEscalated": 1 //dont show the ESCALATE button
+                    "IsEscalated": 1, //dont show the ESCALATE button
+                    "TimeStamp": "1590863383194"
                 }
             }
         ],

@@ -23,15 +23,20 @@ export class EncounterChartComponent extends ChartComponent {
   set enctrChart(value: any) {
     if(value && value.length > 0) {
       this._chartData = value;
+      setTimeout(() => {
+        const c = this.highcharts.chart(this.localOptions);
+        c.reflow(); // Use this with renderTo Option
+      }, 1);
     }
   }
 
   onChartLoad() {
-  
+
     this.localOptions = {
       chart: { 
         type: 'spline',
-        height: 270
+        height: 270,
+        renderTo: 'chartwrap'
       },
       xAxis: [{
         labels: {
@@ -54,8 +59,8 @@ export class EncounterChartComponent extends ChartComponent {
           }
         }
       }
-    };
-
+    };  
+    
       this.localOptions.series = this._chartData;
       this.chartComponent.updateChart(this.highcharts, this.localOptions);
   }

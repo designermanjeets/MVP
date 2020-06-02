@@ -6,21 +6,19 @@
     <span class="font14">Last updated 5 min ago</span>
 
     <section fxLayout="row wrap" fxLayoutAlign="start start">
-        
+
         <!-- Encounter Chart -->
         <workspace-encounter-chart
             *ngIf="enctrChart"
             [enctrChart]="enctrChart"
-            fxFlex="500px"
-            fxFlex.lg="100"
+            fxFlex="60"
         >
         </workspace-encounter-chart>
         <!-- ./Encounter Chart -->
 
         <!-- Modes -->
         <workspace-enctrmodespie
-            fxFlex="35"
-            fxFlex.lg="100"
+            fxFlex="325px"
             *ngIf="encntrPieResult"
             [encntrPieResult]=encntrPieResult
         ></workspace-enctrmodespie>
