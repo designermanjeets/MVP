@@ -90,10 +90,12 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .color-bird { color: #E44D25; }
 .color-members { color: #CFC0BB; }
 .color-casual { color: #7aa3e5; }
+.color-warn { color: #F9A825; }
 .bg-lime { background-color: #5AA454; }
 .bg-bird { background-color: #E44D25; }
 .bg-members { background-color: #CFC0BB; }
 .bg-casual { background-color: #7aa3e5; }
+.bg-warn { background-color: #F9A825; }
 
 
 
@@ -107,6 +109,8 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .font14 { font-size: 14px !important; }
 .font17 { font-size: 17px !important; }
 .text-uppercase { text-transform: uppercase; }
+.text-inherit { text-transform: inherit; }
+.text-initial { text-transform: initial; }
 .pos-rel { position: relative; }
 .zIndex { z-index: 1; }
 .bg-blue { background-color: #0d47a1; }

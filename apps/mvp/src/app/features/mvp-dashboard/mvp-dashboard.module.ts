@@ -29,6 +29,7 @@ import { EncounterChartComponent } from './encounters/encounter-chart/encounter-
 import { EnctrmodespieComponent } from './encounters/enctrmodespie/enctrmodespie.component';
 import { EnctrpedgridComponent } from './encounters/enctrpedgrid/enctrpedgrid.component';
 import { EnctrpedInsightsComponent } from './encounters/enctrped-insights/enctrped-insights.component';
+import { IngestionComponent } from './ingestion/ingestion.component';
 
 const routes: Routes = [
   {
@@ -63,7 +64,8 @@ const routes: Routes = [
     EncounterChartComponent,
     EnctrmodespieComponent,
     EnctrpedgridComponent,
-    EnctrpedInsightsComponent
+    EnctrpedInsightsComponent,
+    IngestionComponent
   ],
   imports: [
     CommonModule,

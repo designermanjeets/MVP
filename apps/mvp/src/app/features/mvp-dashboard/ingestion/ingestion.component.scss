@@ -1,0 +1,20 @@
+:host { margin-bottom: 25px; display: block; }
+h3 {
+    font-size: 22px;
+    mat-icon { vertical-align: top; margin-top: -1px; }
+}
+
+.latlanicon {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+::ng-deep .ingentionGrid {
+    .material-icons { vertical-align: top; font-size: 18px; margin-top: -2px; }
+    td.mat-cell.wdiscrip {
+        max-width: 200px;
+        text-transform: inherit;
+    }
+}

@@ -34,5 +34,14 @@
         "When": "When",
         "Resolution": "Resolution",
         "STATUS": "Status"
+    },
+    "Ingestion": {
+        "Accuracy": "Accuracy",
+        "Precision": "Precision",
+        "Status": "Status",
+        "MDS Check": "MDS Check",
+        "LastUpdated": "Last Updated",
+        "Description": "Description",
+        "Type": "Type"
     }
 }
