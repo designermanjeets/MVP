@@ -15,4 +15,13 @@
             top: 3px;
          }
     }
+    td.mat-cell.td-condition {
+        min-width: 200px;
+    }
+    td.mat-cell.td-when {
+        min-width: 100px;
+    }
+    .locationio { 
+        margin-top: -8px;
+    }
 }

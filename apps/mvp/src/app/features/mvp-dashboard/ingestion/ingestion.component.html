@@ -16,117 +16,119 @@
                             <mat-icon class="material-icons grayblue-color">insert_chart</mat-icon>
                         </button>
                     </h3>
-                    
-                    <table mat-table [dataSource]="tbl.API" class="mat-elevation-z8 ingentionGrid" fxFlex="calc(100%)" [marginBottom]="25">
-        
-                        <ng-container
-                            [matColumnDef]="column"
-                            *ngFor="let column of tbl.cols">
-        
-                                <th 
-                                    mat-header-cell 
-                                    *matHeaderCellDef
-                                    class="text-center"
-                                    >
-                                    <ng-container *ngIf="column === 'Name'; else elseTemp">
-                                        <span [ngClass]="{
-                                            'color-lime': tbl.Operator.toLowerCase() === 'lime',
-                                            'color-bird': tbl.Operator.toLowerCase() === 'bird',
-                                            'color-casual': tbl.Operator.toLowerCase() === 'hopr'
-                                        }">
-                                            {{tbl.Operator}}
-                                        </span>
-                                    </ng-container>
-                                    <ng-template #elseTemp>
-                                        <span translate> {{enTable}}.{{ column }}</span>
-                                    </ng-template>
-                                    
-                                </th>
-        
-                                <td mat-cell *matCellDef="let element" [ngClass]="{'wdiscrip': column === 'Description'}" class="text-uppercase">
-                                    <ng-container [ngSwitch]="column">
-        
-                                        <ng-template [ngSwitchCase]="'Accuracy'">
-                                            <span [ngClass]="{'color-bird': element[column]?.RelatedInsights.IsWarning}">
-                                                {{element[column]?.Subject}}
+
+                    <section class="tblwrap scrollmvp">
+                        <table mat-table [dataSource]="tbl.API" class="mat-elevation-z8 ingentionGrid" fxFlex="calc(100%)" [marginBottom]="25">
+            
+                            <ng-container
+                                [matColumnDef]="column"
+                                *ngFor="let column of tbl.cols">
+            
+                                    <th 
+                                        mat-header-cell 
+                                        *matHeaderCellDef
+                                        class="text-center"
+                                        >
+                                        <ng-container *ngIf="column === 'Name'; else elseTemp">
+                                            <span [ngClass]="{
+                                                'color-lime': tbl.Operator.toLowerCase() === 'lime',
+                                                'color-bird': tbl.Operator.toLowerCase() === 'bird',
+                                                'color-casual': tbl.Operator.toLowerCase() === 'hopr'
+                                            }">
+                                                {{tbl.Operator}}
                                             </span>
-                                            <span
-                                                *ngIf="element[column]?.RelatedInsights.IsWarning" 
-                                                class="material-icons color-warn"
-                                            >warning</span>
+                                        </ng-container>
+                                        <ng-template #elseTemp>
+                                            <span translate> {{enTable}}.{{ column }}</span>
                                         </ng-template>
-        
-                                        <ng-template [ngSwitchCase]="'Precision'">
-                                            <p 
-                                                *ngIf="element[column]" 
-                                                fxLayout="row" 
-                                                fxLayoutAlign="space-between start"
-                                            >LAT: 
-                                                <span class="text-initial"
-                                                    [ngClass]="{'color-bird' : element[column]?.Latitutde.Actual < element[column]?.Latitutde.Expected}"
-                                                >
-                                                    .<span *ngFor="let x of getXfills(element[column]?.Latitutde.Actual)">x</span>
+                                        
+                                    </th>
+            
+                                    <td mat-cell *matCellDef="let element" [ngClass]="{'wdiscrip': column === 'Description'}" class="text-uppercase">
+                                        <ng-container [ngSwitch]="column">
+            
+                                            <ng-template [ngSwitchCase]="'Accuracy'">
+                                                <span [ngClass]="{'color-bird': element[column]?.RelatedInsights.IsWarning}">
+                                                    {{element[column]?.Subject}}
                                                 </span>
-                                                <span class="color-lime text-initial">
-                                                    (.<span *ngFor="let x of getXfills(element[column]?.Latitutde.Expected)">x</span>)
+                                                <span
+                                                    *ngIf="element[column]?.RelatedInsights.IsWarning" 
+                                                    class="material-icons color-warn"
+                                                >warning</span>
+                                            </ng-template>
+            
+                                            <ng-template [ngSwitchCase]="'Precision'">
+                                                <p 
+                                                    *ngIf="element[column]" 
+                                                    fxLayout="row" 
+                                                    fxLayoutAlign="space-between start"
+                                                >LAT: 
+                                                    <span class="text-initial"
+                                                        [ngClass]="{'color-bird' : element[column]?.Latitutde.Actual < element[column]?.Latitutde.Expected}"
+                                                    >
+                                                        .<span *ngFor="let x of getXfills(element[column]?.Latitutde.Actual)">x</span>
+                                                    </span>
+                                                    <span class="color-lime text-initial">
+                                                        (.<span *ngFor="let x of getXfills(element[column]?.Latitutde.Expected)">x</span>)
+                                                    </span>
+                                                    <button mat-icon-button class="latlanicon"><span class="material-icons">expand_more</span></button>
+                                                </p>
+                                                <p 
+                                                    *ngIf="element[column]" 
+                                                    fxLayout="row" 
+                                                    fxLayoutAlign="space-between start"
+                                                >LON: 
+                                                    <span class="text-initial"
+                                                        [ngClass]="{'color-bird' : element[column]?.Longitude.Actual < element[column]?.Longitude.Expected}"
+                                                    >
+                                                        .<span *ngFor="let x of getXfills(element[column]?.Longitude.Actual)">x</span>
+                                                    </span>
+                                                    <span class="color-lime text-initial">
+                                                        (.<span *ngFor="let x of getXfills(element[column]?.Longitude.Expected)">x</span>)
+                                                    </span>
+                                                    <button mat-icon-button class="latlanicon"><span class="material-icons">expand_more</span></button>
+                                                </p>
+                                            </ng-template>
+            
+                                            <ng-template [ngSwitchCase]="'Name'">
+                                                {{element[column]}}
+                                            </ng-template>
+            
+                                            <ng-template [ngSwitchCase]="'MDS Check'">
+                                                <span [ngClass]="{'color-bird': element[column]?.Subject === 'Anomalies'}">
+                                                    {{element[column]?.Subject}}
                                                 </span>
-                                                <button mat-icon-button class="latlanicon"><span class="material-icons">expand_more</span></button>
-                                            </p>
-                                            <p 
-                                                *ngIf="element[column]" 
-                                                fxLayout="row" 
-                                                fxLayoutAlign="space-between start"
-                                            >LON: 
-                                                <span class="text-initial"
-                                                    [ngClass]="{'color-bird' : element[column]?.Longitude.Actual < element[column]?.Longitude.Expected}"
-                                                >
-                                                    .<span *ngFor="let x of getXfills(element[column]?.Longitude.Actual)">x</span>
+                                                <span *ngIf="element[column].Subject === 'Anomalies'" class="material-icons color-warn">warning</span>
+                                                <span *ngIf="element[column].Subject === 'Complete'" class="material-icons color-lime">done</span>
+                                            </ng-template>
+            
+                                            <ng-template [ngSwitchCase]="'LastUpdated'">
+                                                {{element[column]?.Subject | date}}
+                                            </ng-template>
+            
+                                            <ng-template [ngSwitchCase]="'Status'">
+                                                <span [ngClass]="{'color-bird': element[column]?.Subject ==='offline'}">
+                                                    {{element[column]?.Subject}}
                                                 </span>
-                                                <span class="color-lime text-initial">
-                                                    (.<span *ngFor="let x of getXfills(element[column]?.Longitude.Expected)">x</span>)
-                                                </span>
-                                                <button mat-icon-button class="latlanicon"><span class="material-icons">expand_more</span></button>
-                                            </p>
-                                        </ng-template>
-        
-                                        <ng-template [ngSwitchCase]="'Name'">
-                                            {{element[column]}}
-                                        </ng-template>
-        
-                                        <ng-template [ngSwitchCase]="'MDS Check'">
-                                            <span [ngClass]="{'color-bird': element[column]?.Subject === 'Anomalies'}">
-                                                {{element[column]?.Subject}}
-                                            </span>
-                                            <span *ngIf="element[column].Subject === 'Anomalies'" class="material-icons color-warn">warning</span>
-                                            <span *ngIf="element[column].Subject === 'Complete'" class="material-icons color-lime">done</span>
-                                        </ng-template>
-        
-                                        <ng-template [ngSwitchCase]="'LastUpdated'">
-                                            {{element[column]?.Subject | date}}
-                                        </ng-template>
-        
-                                        <ng-template [ngSwitchCase]="'Status'">
-                                            <span [ngClass]="{'color-bird': element[column]?.Subject ==='offline'}">
-                                                {{element[column]?.Subject}}
-                                            </span>
-                                            <button *ngIf="element[column]?.Subject ==='offline'" mat-icon-button class="latlanicon color-bird">
-                                                <span class="material-icons">refresh</span>
-                                            </button>
-                                            <button *ngIf="element[column]?.Subject ==='offline'" mat-icon-button class="latlanicon color-bird">
-                                                <span class="material-icons">publish</span>
-                                            </button>
-                                        </ng-template>
-        
-                                        <ng-template [ngSwitchDefault]>{{element[column]?.Subject}}</ng-template>
-                                    </ng-container>
-                                </td>
-        
-                        </ng-container>
-        
-                        <tr mat-header-row *matHeaderRowDef="tbl.cols"></tr>
-                        <tr mat-row *matRowDef="let row; columns: tbl.cols;"></tr>
-        
-                    </table>
+                                                <button *ngIf="element[column]?.Subject ==='offline'" mat-icon-button class="latlanicon color-bird">
+                                                    <span class="material-icons">refresh</span>
+                                                </button>
+                                                <button *ngIf="element[column]?.Subject ==='offline'" mat-icon-button class="latlanicon color-bird">
+                                                    <span class="material-icons">publish</span>
+                                                </button>
+                                            </ng-template>
+            
+                                            <ng-template [ngSwitchDefault]>{{element[column]?.Subject}}</ng-template>
+                                        </ng-container>
+                                    </td>
+            
+                            </ng-container>
+            
+                            <tr mat-header-row *matHeaderRowDef="tbl.cols"></tr>
+                            <tr mat-row *matRowDef="let row; columns: tbl.cols;"></tr>
+            
+                        </table>
+                    </section>
                 </mat-tab>
             </ng-container>
         

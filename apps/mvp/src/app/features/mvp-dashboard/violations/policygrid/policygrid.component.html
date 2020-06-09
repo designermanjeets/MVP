@@ -1,41 +1,55 @@
 <section [hidden]="violationDataSource" fxLayout="row wrap" fxLayoutAlign="start start" [marginTop]="25">
-    <table mat-table [dataSource]="violationDataSource" class="mat-elevation-z8 violationGrid" fxFlex="100">
+    <section class="tblwrap scrollmvp">
+        <table mat-table [dataSource]="violationDataSource" class="mat-elevation-z8 violationGrid" fxFlex="100">
 
-        <!-- Column -->
-        <ng-container
-            [matColumnDef]="column"
-            *ngFor="let column of displayedColumns; index as i; first as isFirst">
-            <th mat-header-cell *matHeaderCellDef
-            class="text-center">
-                <span translate>{{enTable}}.{{ column }}</span>
-            </th>
-            <td mat-cell *matCellDef="let element">
-                <span *ngIf="column === 'WhatHappened'; else regularCol">
-                    {{ element[column].Subject }}
-                    <button
-                        *ngIf="element[column].IsEscalated"
-                        mat-button mat-raised-button
-                        class="fl-r bg-green done"
-                        [marginTop]="5"
-                        [marginBottom]="5"
-                        >Escalate
-                    </button>
-                </span>
-                <ng-template #regularCol>
-                    <span *ngIf="column === 'STATUS'; else nonStatus">
-                        <span *ngIf="element[column] === 'ACTIVE'" class="color-bird">{{element[column]}}</span>
-                        <span *ngIf="element[column] === 'DONE'" class="bg-green done">{{element[column]}}</span>
+            <!-- Column -->
+            <ng-container
+                [matColumnDef]="column"
+                *ngFor="let column of displayedColumns; index as i; first as isFirst">
+                <th mat-header-cell *matHeaderCellDef
+                class="text-center">
+                    <span translate>{{enTable}}.{{ column }}</span>
+                </th>
+                <td mat-cell *matCellDef="let element"
+                    [ngClass]="{
+                        'min100': column === 'OperatorName',
+                        'min150': column === 'WhatHappened',
+                        'min100': column === 'When',
+                        'min75': column === 'STATUS'
+                    }"
+                >
+                    <span *ngIf="column === 'WhatHappened'; else regularCol">
+                        {{ element[column].Subject }}
+                        <button
+                            *ngIf="element[column].IsEscalated"
+                            mat-button mat-raised-button
+                            class="fl-r bg-green done"
+                            [marginTop]="5"
+                            [marginBottom]="5"
+                            >Escalate
+                        </button>
                     </span>
-                    <ng-template #nonStatus>
-                        {{ element[column]}}
+                    <ng-template #regularCol>
+                        <span *ngIf="column === 'STATUS'; else nonStatus">
+                            <span *ngIf="element[column] === 'ACTIVE'" class="color-bird">{{element[column]}}</span>
+                            <span *ngIf="element[column] === 'DONE'" class="bg-green done">{{element[column]}}</span>
+                        </span>
+                        <ng-template #nonStatus>
+                            <span *ngIf="column === 'When'; else nonWhen">
+                                <span>{{element[column] | date}}</span>
+                            </span>
+                            <ng-template #nonWhen>
+                                {{ element[column]}}
+                            </ng-template>
+                        </ng-template>
                     </ng-template>
-                </ng-template>
-            </td>
-        </ng-container>
+                </td>
+            </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
 
     <div fxFlex="100" fxLayout="row" fxLayoutAlign="end start" [marginTop]="15" [marginBottom]="25">
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

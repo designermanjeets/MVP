@@ -12,13 +12,13 @@ export const VIOLATIONS = {
                         {
                             "Subject": "Escalation Detected",
                             "Description": "Operator over deployment detected....",
-                            "DateTime": "DateTimeStamp",
+                            "DateTime": "1590863383194",
                             "IsEscalated": 0 // if 0 show Escalate button, else if 1 dont show Escalate button
                         },
                         {
                             "Subject": "Reason for suspension",
                             "Description": "Operator failed to comply with polic1....\nOperator failed to comply with rebalancing...",
-                            "DateTime": "DateTimeStamp",
+                            "DateTime": "1590863383194",
                             "IsEscalated": 1
                         }
                     ], // RelatedInsight ends
@@ -28,28 +28,28 @@ export const VIOLATIONS = {
                         "Name": "Policy1",
                         "Description": "policy bars deploying vehicles on 152...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 30
                     },
                     {
                         "Name": "Policy2",
                         "Description": "policy bars deploying vehicles on 72...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 20
                     },
                     {
                         "Name": "Policy3",
                         "Description": "policy bars deploying vehicles on 52...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 30
                     },
                     {
                         "Name": "Policy4",
                         "Description": "policy bars deploying vehicles on 62...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 20
                     }
                 ],
@@ -67,7 +67,7 @@ export const VIOLATIONS = {
                             "Description": "Details", // This will be displayed on pop over, not implemented yet.
                             "IsEscalated": 0
                         },
-                        "When": "DateTimeStamp",
+                        "When": "1590863383194",
                         "Resolution": "....",
                         "STATUS": "ACTIVE"
                     },
@@ -79,7 +79,7 @@ export const VIOLATIONS = {
                             "Description": "Details", // This will be displayed on pop over, not implemented yet.
                             "IsEscalated": 1 // if 0 show Escalate button, else if 1 dont show Escalate button
                         },
-                        "When": "DateTimeStamp",
+                        "When": "1590863383194",
                         "Resolution": "vehicle are moved away",
                         "STATUS": "DONE"
                     }
@@ -95,19 +95,19 @@ export const VIOLATIONS = {
                         {
                             "Subject": "Escalation Detected",
                             "Description": "Operator over deployment detected....",
-                            "DateTime": "DateTimeStamp",
+                            "DateTime": "1590863383194",
                             "IsEscalated": 0 // if 0 show Escalate button, else if 1 dont show Escalate button
                         },
                         {
                             "Subject": "Reason for suspension",
                             "Description": "Operator failed to comply with polic1....\nOperator failed to comply with rebalancing...",
-                            "DateTime": "DateTimeStamp",
+                            "DateTime": "1590863383194",
                             "IsEscalated": 1
                         },
                         {
                             "Subject": "Reason for suspension",
                             "Description": "Operator failed to comply with polic1....\nOperator failed to comply with rebalancing...",
-                            "DateTime": "DateTimeStamp",
+                            "DateTime": "1590863383194",
                             "IsEscalated": 1
                         }
                     ], // RelatedInsight ends
@@ -117,21 +117,21 @@ export const VIOLATIONS = {
                         "Name": "Policy1",
                         "Description": "policy bars deploying vehicles on 152...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 30
                     },
                     {
                         "Name": "Policy2",
                         "Description": "policy bars deploying vehicles on 72...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 20
                     },
                     {
                         "Name": "Policy3",
                         "Description": "policy bars deploying vehicles on 52...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 30
                     }
                 ],
@@ -149,7 +149,7 @@ export const VIOLATIONS = {
                             "Description": "Details", // This will be displayed on pop over, not implemented yet.
                             "IsEscalated": 0
                         },
-                        "When": "DateTimeStamp",
+                        "When": "1590863383194",
                         "Resolution": "....",
                         "STATUS": "ACTIVE"
                     }
@@ -165,7 +165,7 @@ export const VIOLATIONS = {
                         {
                             "Subject": "Escalation Detected",
                             "Description": "Operator over deployment detected....",
-                            "DateTime": "DateTimeStamp",
+                            "DateTime": "1590863383194",
                             "IsEscalated": 0 // if 0 show Escalate button, else if 1 dont show Escalate button
                         }
                     ], // RelatedInsight ends
@@ -175,28 +175,28 @@ export const VIOLATIONS = {
                         "Name": "Policy1",
                         "Description": "policy bars deploying vehicles on 152...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 10
                     },
                     {
                         "Name": "Policy2",
                         "Description": "policy bars deploying vehicles on 72...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 20
                     },
                     {
                         "Name": "Policy3",
                         "Description": "policy bars deploying vehicles on 52...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 20
                     },
                     {
                         "Name": "Policy4",
                         "Description": "policy bars deploying vehicles on 52...",
                         "IsEscalated": 0,
-                        "ViolationsDate": "DateTimeStamp, DateTimeStamp, DateTimeStamp",
+                        "ViolationsDate": "1590863383194, 1590863383194, 1590863383194",
                         "Percentage": 50
                     }
                 ],
@@ -218,7 +218,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -227,7 +227,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -236,7 +236,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -245,7 +245,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -254,7 +254,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -263,7 +263,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -272,7 +272,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -281,7 +281,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -290,7 +290,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -299,7 +299,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -308,7 +308,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -317,7 +317,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -326,7 +326,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -335,7 +335,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -344,7 +344,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -353,7 +353,7 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     },
     {
         OperatorName: "LIME",
@@ -362,6 +362,6 @@ export const TEMP = [
         Resolution: "....",
         STATUS: "ACTIVE",
         WhatHappened: {Subject: "10 improperly parked...", Description: "Details", IsEscalated: 0},
-        When: "DateTimeStamp"
+        When: "1590863383194"
     }
 ]
