@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { ChartComponent } from './../../../../shared/components/chart/chart.component';
 import { chartColors } from './../../_models/trip.model';
 
@@ -28,6 +28,12 @@ export class EncounterChartComponent extends ChartComponent {
         c.reflow(); // Use this with renderTo Option
       }, 1);
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+   const c = this.highcharts.chart(this.localOptions);
+   c.reflow(); // Use this with renderTo Option
   }
 
   onChartLoad() {
