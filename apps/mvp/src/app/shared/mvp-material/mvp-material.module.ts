@@ -16,6 +16,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 const modules = [
@@ -34,7 +36,9 @@ const modules = [
     MatNativeDateModule,
     MatPaginatorModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSelectModule,
+    MatFormFieldModule
 ]
 
 @NgModule({

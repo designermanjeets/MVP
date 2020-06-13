@@ -98,6 +98,27 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
     overflow-x: auto; padding: 15px; padding-top: 0; width: 100%;
 }
 
+:root .smallBoxedInputs {
+    .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0 !important;}
+    .mat-form-field-label-wrapper { top: -1.5em; }
+
+    .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+        transform: translateY(-1.1em) scale(.75);
+        width: 133.33333%;
+    }
+    input.mat-input-element {
+        margin-top: -0.25em;
+        vertical-align: top;
+    }
+    .mat-select {
+        margin-top: -3px;
+        vertical-align: top;
+        .mat-select-arrow-wrapper {
+            transform: translateY(-10%);
+        }
+    }
+}
+
 
 
 
@@ -123,6 +144,7 @@ body { margin: 0; font-family: 'Baloo Chettan 2', cursive; line-height: 1; }
 .font12 { font-size: 12px !important; }
 .font14 { font-size: 14px !important; }
 .font17 { font-size: 17px !important; }
+.font25 { font-size: 25px !important; }
 .text-uppercase { text-transform: uppercase; }
 .text-inherit { text-transform: inherit; }
 .text-initial { text-transform: initial; }
@@ -155,9 +177,11 @@ h4, h2, h3 { font-weight: 500; }
 }
 .text-right { text-align: right; }
 .vtop { vertical-align: top; }
+.vtxtbot { vertical-align: text-bottom; }
 mde-popover { margin-bottom: 0 !important; }
 .highcharts-credits { display: none !important; }
 .nowrap { white-space: nowrap; }
+.padd15 { padding: 15px; }
 
 // Custom Scrollbar
 .scrollmvp::-webkit-scrollbar {

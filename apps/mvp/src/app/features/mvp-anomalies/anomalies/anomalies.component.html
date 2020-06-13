@@ -1,0 +1,159 @@
+<section fxFlex="98" fxFlexOffset="1" [marginTop]="25">
+    <mat-card>
+        <!-- Heading -->
+        <h3 class="text-uppercase" [marginBottom]="0">
+            Data Anomalies
+            <mat-icon class="material-icons grayblue-color">notifications</mat-icon>
+        </h3>
+        <!-- Tabs -->
+        <mat-tab-group #tabgrp (selectedTabChange)="selectedTabChange($event)" mat-align-tabs="start" [animationDuration]="'0ms'" [marginTop]="25">
+            <mat-tab label="Precision">
+                <section fxLayout="row wrap" fxLayoutAlign="start start">
+                    <!-- Grid -->
+                    <div fxFlex="50" class="padd15" fxLayout="row wrap" fxLayoutAlign="start start">
+                        <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" fxFlex="100">
+
+                            <!-- Column -->
+                            <ng-container matColumnDef="Operator">
+                                <th mat-header-cell *matHeaderCellDef> Operator </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Operator}} </td>
+                            </ng-container>
+
+                            <!-- Column -->
+                            <ng-container matColumnDef="Anomalies">
+                                <th mat-header-cell *matHeaderCellDef> Anomalies </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span [innerHTML]="checkForBrace(element.Anomalies)"></span>
+                                    <span 
+                                        class="material-icons pointer vtxtbot"
+                                        [mdePopoverTriggerFor]="anomalyPopover"
+                                        mdePopoverTriggerOn="click"
+                                    >arrow_drop_down</span>
+                                </td>
+                            </ng-container>
+                            
+
+                            <!-- Popover -->
+                            <mde-popover #anomalyPopover="mdePopover"
+                                [mdePopoverOverlapTrigger]="false"
+                                [mdePopoverCloseOnClick]="false"
+                                mdePopoverArrowColor="#FFFFFF"
+                            >
+                                <mat-card class="insights-card mat-elevation-z8">
+                                    <mat-card-content>
+                                        <table mat-table [dataSource]="dataSourceDvPop" fxFlex="100" class="mat-elevation-z2 no-thead">
+                
+                                            <!-- Column -->
+                                            <ng-container matColumnDef="DateTimeStamp">
+                                                <th [hidden]="true" mat-header-cell *matHeaderCellDef></th>
+                                                <td mat-cell *matCellDef="let element"> {{element.DateTimeStamp | date:'medium'}} </td>
+                                            </ng-container>
+                
+                                            <!-- Column -->
+                                            <ng-container matColumnDef="Deviations">
+                                                <th [hidden]="true" mat-header-cell *matHeaderCellDef></th>
+                                                <td mat-cell *matCellDef="let element" class="text-center">
+                                                    <span class="material-icons font25 color-green vtxtbot">arrow_drop_up</span>
+                                                    {{element.Deviations}}%
+                                                </td>
+                                            </ng-container>
+                
+                                            <tr mat-header-row *matHeaderRowDef="[ 'DateTimeStamp', 'Deviations' ]"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: [ 'DateTimeStamp', 'Deviations' ];"></tr>
+                                        </table>
+                                    </mat-card-content>
+                                </mat-card>
+                            </mde-popover>
+                            <!-- ./Popover -->
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                    <!-- ./Grid -->
+                    <!-- Chart -->
+                    <div fxFlex="50">
+                        <workspace-anomalies-chart
+                            [chartData]="chartData"
+                        ></workspace-anomalies-chart>
+                    </div>
+                    <!-- ./Chart -->
+                </section>
+            </mat-tab>
+            <mat-tab label="Accuracy">
+                <section fxLayout="row wrap" fxLayoutAlign="start start">
+                    <!-- Grid -->
+                    <div fxFlex="50" class="padd15" fxLayout="row wrap" fxLayoutAlign="start start">
+                        <table class="mat-elevation-z8" mat-table [dataSource]="dataSourceDv" fxFlex="100">
+
+                            <!-- Column -->
+                            <ng-container matColumnDef="Operator">
+                                <th mat-header-cell *matHeaderCellDef> Operator </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Operator}} </td>
+                            </ng-container>
+
+                            <!-- Column -->
+                            <ng-container matColumnDef="Deviations">
+                                <th mat-header-cell *matHeaderCellDef> Deviations </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span [innerHTML]="checkForBrace(element.Deviations)"></span>
+                                    <span 
+                                        class="material-icons pointer vtxtbot"
+                                        [mdePopoverTriggerFor]="anomalyPopover"
+                                        mdePopoverTriggerOn="click"
+                                    >arrow_drop_down</span>
+                                </td>
+                            </ng-container>
+                            
+
+                            <!-- Popover -->
+                            <mde-popover #anomalyPopover="mdePopover"
+                                [mdePopoverOverlapTrigger]="false"
+                                [mdePopoverCloseOnClick]="false"
+                                mdePopoverArrowColor="#FFFFFF"
+                            >
+                                <mat-card class="insights-card mat-elevation-z8">
+                                    <mat-card-content>
+                                        <table mat-table [dataSource]="dataSourceDvPop" fxFlex="100" class="mat-elevation-z2 no-thead">
+                
+                                            <!-- Column -->
+                                            <ng-container matColumnDef="DateTimeStamp">
+                                                <th [hidden]="true" mat-header-cell *matHeaderCellDef></th>
+                                                <td mat-cell *matCellDef="let element"> {{element.DateTimeStamp | date:'medium'}} </td>
+                                            </ng-container>
+                
+                                            <!-- Column -->
+                                            <ng-container matColumnDef="Deviations">
+                                                <th [hidden]="true" mat-header-cell *matHeaderCellDef></th>
+                                                <td mat-cell *matCellDef="let element" class="text-center">
+                                                    <span class="material-icons font25 color-green vtxtbot">arrow_drop_up</span>
+                                                    {{element.Deviations}}%
+                                                </td>
+                                            </ng-container>
+                
+                                            <tr mat-header-row *matHeaderRowDef="[ 'DateTimeStamp', 'Deviations' ]"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: [ 'DateTimeStamp', 'Deviations' ];"></tr>
+                                        </table>
+                                    </mat-card-content>
+                                </mat-card>
+                            </mde-popover>
+                            <!-- ./Popover -->
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsDv"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsDv;"></tr>
+                        </table>
+                    </div>
+                    <!-- ./Grid -->
+                    <!-- Chart -->
+                    <div fxFlex="50" *ngIf="tabIndex === 1">
+                        <workspace-anomalies-chart
+                            [chartData]="chartData"
+                        ></workspace-anomalies-chart>
+                    </div>
+                    <!-- ./Chart -->
+                </section>
+            </mat-tab>
+        </mat-tab-group>
+        <!-- ./Tabs -->
+    </mat-card>
+</section>

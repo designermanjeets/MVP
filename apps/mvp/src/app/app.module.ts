@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,19 +17,26 @@ import { MvpSharedModule } from './shared/shared.module';
 import { MdePopoverModule } from '@material-extended/mde';
 
 // import ngx-translate and the http loader
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AuditLogsComponent } from './features/mvp-audit/audit-logs/audit-logs.component';
+import { AnomaliesComponent } from './features/mvp-anomalies/anomalies/anomalies.component';
+import { AnomaliesChartComponent } from './features/mvp-anomalies/anomalies-chart/anomalies-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     MvpLoginComponent,
     MvpNavbarComponent,
+    AuditLogsComponent,
+    AnomaliesComponent,
+    AnomaliesChartComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
         loader: {

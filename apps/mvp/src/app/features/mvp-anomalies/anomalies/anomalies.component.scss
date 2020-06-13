@@ -1,0 +1,9 @@
+h3 {
+    font-size: 22px;
+    mat-icon { vertical-align: top; margin-top: -1px; }
+}
+::ng-deep {
+    .no-thead {
+        thead { display: none; }
+    }
+}
